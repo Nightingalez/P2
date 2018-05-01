@@ -105,3 +105,7 @@ fabric.properties
 .idea/httpRequests
 EclipseTest/.classpath
 EclipseTest/.project
+EclipseTest/.idea/workspace.xml
+EclipseTest/.idea/modules.xml
+EclipseTest/.idea/misc.xml
+EclipseTest/.idea/EclipseTest.iml
