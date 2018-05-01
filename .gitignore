@@ -103,9 +103,10 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
-EclipseTest/.classpath
-EclipseTest/.project
-EclipseTest/.idea/workspace.xml
-EclipseTest/.idea/modules.xml
-EclipseTest/.idea/misc.xml
-EclipseTest/.idea/EclipseTest.iml
+
+CoreFunctions/.classpath
+CoreFunctions/.project
+CoreFunctions/.idea/workspace.xml
+CoreFunctions/.idea/modules.xml
+CoreFunctions/.idea/misc.xml
+CoreFunctions/.idea/CoreFunctions.iml
