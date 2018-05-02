@@ -1,5 +1,5 @@
 
 public class SomeClass
 {
-	private String = "Poop";
+	private String test = "Poop";
 }
