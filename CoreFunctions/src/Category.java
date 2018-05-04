@@ -4,8 +4,11 @@ public class Category {
 	private String name;
 	private QuantityUnit unit;
 	private Color color;
-	private FoodItem[] subCategories;
+	private FoodItem[] subcategories;
 	private FoodItem subcatagoryOf;
+	
+	public Category()	{
+	}
 	
 	public Category(String name, QuantityUnit unit)	{
 	}
@@ -23,9 +26,16 @@ public class Category {
 	public void addSubcategory(FoodItem subcategory) {
 	}
 	
+	public void removeSubcategory(FoodItem subcategory) {
+		
+	}
 	
 	public FoodItem[] getSubcategories()	{
-		return subCategories;
+		return subcategories;
+	}
+	
+	public FoodItem getParentCategory() {
+		return subcatagoryOf;
 	}
 	
 	// TODO Add proper return
