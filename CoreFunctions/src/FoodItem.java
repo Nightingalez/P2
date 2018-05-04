@@ -1,12 +1,13 @@
 
-public class FoodItem extends Category {
+public class FoodItem {
 
-	private int amount;
 	private String name;
+	private int amount;
+	private FoodItemList inList;
 	
 	public FoodItem() {
-		
 	}
+	
 	public FoodItem(int amount) {
 		 
 	}
@@ -20,6 +21,9 @@ public class FoodItem extends Category {
 	}
 	
 	public void setAmount(int amount) {
+	}
+	
+	public void setInList(FoodItemList list) {
 		
 	}
 }

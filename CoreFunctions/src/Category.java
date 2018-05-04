@@ -7,9 +7,6 @@ public class Category {
 	private FoodItem[] subcategories;
 	private FoodItem subcatagoryOf;
 	
-	public Category()	{
-	}
-	
 	public Category(String name, QuantityUnit unit)	{
 	}
 	
