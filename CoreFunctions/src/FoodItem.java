@@ -23,6 +23,10 @@ public class FoodItem {
 	public void setAmount(int amount) {
 	}
 	
+	public void getInList(FoodItemList list) {
+		
+	}
+	
 	public void setInList(FoodItemList list) {
 		
 	}
