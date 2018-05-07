@@ -1,18 +1,19 @@
+import java.util.ArrayList;
 
 public class FoodItemList {
 
-	private FoodItem[] contents;
+	private ArrayList<FoodItem> contents;
 	
 	public int amount;
 	
-	public FoodItemList(FoodItem[] foodItems) {
+	public FoodItemList(ArrayList<FoodItem> foodItems) {
 	}
 	
 	public void addFoodItem(FoodItem item) {
 		
 	}
 	
-	public void addFoodItem(FoodItem[] item) {
+	public void addFoodItem(ArrayList<FoodItem> item) {
 		
 	}
 	
@@ -20,7 +21,7 @@ public class FoodItemList {
 		
 	}
 	
-	public void removeFoodItem(FoodItem[] item) {
+	public void removeFoodItem(ArrayList<FoodItem> item) {
 		
 	}
 	

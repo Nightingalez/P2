@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Recipe {
 	
@@ -7,7 +8,7 @@ public class Recipe {
 		
 	}
 	
-	public Recipe(FoodItem[] foodItems) {
+	public Recipe(ArrayList<FoodItem> foodItems) {
 		
 	}
 }

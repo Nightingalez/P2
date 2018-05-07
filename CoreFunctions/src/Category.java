@@ -1,10 +1,11 @@
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class Category {
 	private String name;
 	private QuantityUnit unit;
 	private Color color;
-	private FoodItem[] subcategories;
+	private ArrayList<FoodItem> subcategories;
 	private FoodItem subcatagoryOf;
 	
 	public Category(String name, QuantityUnit unit)	{
@@ -27,7 +28,7 @@ public class Category {
 		
 	}
 	
-	public FoodItem[] getSubcategories()	{
+	public ArrayList<FoodItem> getSubcategories()	{
 		return subcategories;
 	}
 	
@@ -39,6 +40,4 @@ public class Category {
 	public FoodItem findSubcategory(String name) {
 		return null;
 	}
-	
-	
 }
