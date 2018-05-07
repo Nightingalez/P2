@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorMeat">#EC4758</color>
+    <color name="colorDairy">#7B90F9</color>
+    <color name="colorVegetable">#26EE99</color>
+    <color name="colorFruit">#85FFCB</color>
+    <color name="colorSnacks">#FF98E6</color>
+    <color name="colorBread">#926757</color>
+    <color name="colorSpices">#FFD72F</color>
 </resources>
