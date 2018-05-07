@@ -1,43 +1,66 @@
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class Category {
+public class Category
+{
 	private String name;
 	private QuantityUnit unit;
-	private Color color;
-	private ArrayList<FoodItem> subcategories;
-	private FoodItem subcatagoryOf;
-	
-	public Category(String name, QuantityUnit unit)	{
+	private Color color; //TODO: discuss whether we should keep this, due to android color definitions
+	private ArrayList<Category> subcategories;
+	private Category parentCatagory;
+
+	// Constructor for a category, that has no parent category (i.e. main
+	// categories)
+	public Category(String name, QuantityUnit unit)
+	{
 	}
-	
-	public Category(String name, QuantityUnit unit, Category subcatagoryOf)	{
+
+	// Constructor for a category, that has a parent category (i.e. subcategories)
+	public Category(String name, QuantityUnit unit, Category subcategoryOf)
+	{
 	}
-	
-	public String getName()	{
+
+	// Returns the name of the category
+	public String getName()
+	{
 		return name;
 	}
-	
-	public void setName()	{
+
+	// Changes the name of the category
+	public void setName()
+	{
 	}
-	
-	public void addSubcategory(FoodItem subcategory) {
+
+	// Adds a category as a subcategory of this category
+	public void addSubcategory(Category subcategory)
+	{
 	}
-	
-	public void removeSubcategory(FoodItem subcategory) {
-		
+
+	// Finds and removes a subcategory from this category's ArrayList. If the given
+	// category cannot be found, do noting
+	public void removeSubcategory(Category subcategory)
+	{
+
 	}
-	
-	public ArrayList<FoodItem> getSubcategories()	{
+
+	// Returns the entire list of this category's subcatagories
+	public ArrayList<Category> getSubcategories()
+	{
 		return subcategories;
 	}
-	
-	public FoodItem getParentCategory() {
-		return subcatagoryOf;
+
+	// Returns this catagory's parent category, if any. Should return null if no
+	// parent category exists
+	public Category getParentCategory()
+	{
+		return parentCatagory;
 	}
-	
-	// TODO Add proper return
-	public FoodItem findSubcategory(String name) {
+
+	// Search through this category's list of subcategory, and returns a subcategory
+	// with a matching name. Return null if no category of that name exists.
+	public Category findSubcategory(String name)
+	{
+		// TODO Add proper return
 		return null;
 	}
 }
