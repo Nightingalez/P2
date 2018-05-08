@@ -6,13 +6,21 @@ public class Recipe extends FoodItemList{
 	
 	//Creates an empty recipe
 	public Recipe() {
-		
+	super();	
 	}
 	
 	//Creates a recipe with food items
 	public Recipe(ArrayList<FoodItem> contents) {
-		//TODO: use super() to complete the constructor
+		
+		super(contents);
 	}
+	
+	//Creates a recipe with a name and food items
+		public Recipe(String name, ArrayList<FoodItem> contents) {
+			
+			this(contents);
+			this.name = name;
+		}
 	
 	//Returns the name of the recipe
 	public String getName()
@@ -23,6 +31,6 @@ public class Recipe extends FoodItemList{
 	//Sets the name of the recipe
 	public void setName(String name)
 	{
-		
+		this.name = name;
 	}
 }
