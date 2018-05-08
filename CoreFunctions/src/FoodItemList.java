@@ -15,7 +15,7 @@ public class FoodItemList
 	// Constructs a food item list with contents
 	public FoodItemList(ArrayList<FoodItem> foodItems)
 	{
-		List<FoodItem> contents = new ArrayList<FoodItem>();
+		this.contents = foodItems;
 	}
 
 	// Adds a food item to contents
@@ -50,7 +50,8 @@ public class FoodItemList
 			case ALPHABETICAL: contents.sort(String.CASE_INSENSITIVE_ORDER);
 			System.out.print(arg0);
 			break;
-		
+			
+			// Fix sorting
 			case CATEGORY: contents.sort(String.);
 		}
 	}
