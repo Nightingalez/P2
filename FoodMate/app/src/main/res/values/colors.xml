@@ -4,11 +4,12 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="colorMeat">#EC4758</color>
-    <color name="colorDairy">#7B90F9</color>
-    <color name="colorVegetable">#26EE99</color>
-    <color name="colorFruit">#85FFCB</color>
-    <color name="colorSnacks">#FF98E6</color>
-    <color name="colorBread">#926757</color>
-    <color name="colorSpices">#FFD72F</color>
+    <color name="colorMeat">#FC7676</color>
+    <color name="colorDairy">#CCFFFF</color>
+    <color name="colorVegetable">#CCFF66</color>
+    <color name="colorFruit">#D88BFF</color>
+    <color name="colorSnacks">#FFAFFF</color>
+    <color name="colorBakery">#F6C96F</color>
+    <color name="colorBeverages">#E4E4E4</color>
+    <color name="colorGrains">#FFFF99</color>
 </resources>
