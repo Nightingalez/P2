@@ -5,8 +5,9 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 .idea/misc.xml
-/.idea/modules.xml
-/.idea/workspace.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/caches/build_file_checksums.ser
 .DS_Store
 /build
 /captures
