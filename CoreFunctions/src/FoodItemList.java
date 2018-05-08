@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class FoodItemList
 {
@@ -13,34 +15,44 @@ public class FoodItemList
 	// Constructs a food item list with contents
 	public FoodItemList(ArrayList<FoodItem> foodItems)
 	{
+		List<FoodItem> contents = new ArrayList<FoodItem>();
 	}
 
 	// Adds a food item to contents
 	public void addFoodItem(FoodItem item)
 	{
+		contents.add(item);
 	}
 
 	// Adds multiple food items to contents
 	public void addFoodItem(ArrayList<FoodItem> item)
 	{
-
+		contents.addAll(item);
 	}
 
 	// Removes a food item from contents
 	public void removeFoodItem(FoodItem item)
 	{
-
+		contents.remove(item);
 	}
 
 	// Removes multiple food item from contents
 	public void removeFoodItem(ArrayList<FoodItem> item)
 	{
-
+		contents.removeAll(item);
 	}
 
 	// Sorts the food item lists contents, based on sorting type
 	public void sortList(SortingMethod sortingType)
 	{
+		switch (sortingType) {
+		
+			case ALPHABETICAL: contents.sort(String.CASE_INSENSITIVE_ORDER);
+			System.out.print(arg0);
+			break;
+		
+			case CATEGORY: contents.sort(String.);
+		}
 	}
 
 	// Compare the contents of this food item list with another. Return what is
