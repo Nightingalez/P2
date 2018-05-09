@@ -80,7 +80,6 @@ public class Category
 		this.parentCategory = parentCatagory;
 	}
 	
-	//TODO: add new methods to class diagram
 		public Category getMainCategory()
 		{
 			if (!this.isMainCategory())

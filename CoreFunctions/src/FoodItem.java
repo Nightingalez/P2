@@ -9,7 +9,7 @@ public class FoodItem
 	private Category category;
 	private FoodItemList inList;
 
-	// Create a food item of a specific type (category) TODO: Add to class diagram
+	// Create a food item of a specific type (category) 
 	public FoodItem(Category category)
 	{
 		this.category = category;
@@ -73,7 +73,6 @@ public class FoodItem
 		this.inList = list;
 	}
 
-	// TODO: add new methods to class diagram
 	public Category getMainCategory()
 	{
 		return category.getMainCategory();
