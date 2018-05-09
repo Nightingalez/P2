@@ -1,3 +1,4 @@
+package com.b139.foodmate;
 import java.util.Comparator;
 
 public class FoodItem
