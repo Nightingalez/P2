@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class DataManager {
+    //TODO: create default file names
     private static ArrayList<Category> categories;
     final static String CATEGORIES = "categories.txt";
 
@@ -67,4 +68,30 @@ public class DataManager {
         loaded.toArray(result);
         return result;
     }
+
+    //TODO: create a initializer for figuring out what and when to load
+
+    //TODO: create a shutdown saver
+
+    //TODO: create category loader
+
+    //TODO: create category stringarray generator
+
+    //TODO: create food item loader
+
+    //TODO: create food item stringarray generator
+
+    //TODO: create food item list loader
+
+    //TODO: create storage & shopping list loader
+
+    //TODO: create food item list stringarray generator
+
+    //TODO: create storage & shopping list saver
+
+    //TODO: create recipe loader
+
+    //TODO: create recipe stringarray generator
+
+    //TODO: create reset
 }
