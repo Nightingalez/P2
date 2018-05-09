@@ -69,6 +69,8 @@ public class DataManager {
         return result;
     }
 
+    //TODO: create a dummy data initializer, so we can work on array adapters
+
     //TODO: create a initializer for figuring out what and when to load
 
     //TODO: create a shutdown saver
