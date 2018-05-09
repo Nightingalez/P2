@@ -1,4 +1,4 @@
-package com.b139.foodmate;
+
 import java.util.ArrayList;
 
 public class Category
@@ -23,12 +23,6 @@ public class Category
 	{
 		this(name, unit);
 		newParentCategory.addSubcategory(this);
-	}
-
-	// Returns the category's ID
-	public int getID()
-	{
-		return id;
 	}
 
 	// Returns the name of the category
@@ -80,7 +74,7 @@ public class Category
 		this.parentCategory = parentCatagory;
 	}
 	
-	//TODO: add new methods to class diagram
+	//Finds the uppermost main category that this category belongs under. Returns itself if it is a main category
 		public Category getMainCategory()
 		{
 			if (!this.isMainCategory())
@@ -118,5 +112,11 @@ public class Category
 	{
 		this.id = highestKnownID + 1;
 		highestKnownID += 1;
+	}
+
+	// Returns the category's ID
+	public int getID()
+	{
+		return id;
 	}
 }
