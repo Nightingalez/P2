@@ -62,7 +62,7 @@ public class Category
 		return subcategories;
 	}
 
-	// Returns this catagory's parent category, if any. Should return null if no
+	// Returns this categories parent category, if any. Should return null if no
 	// parent category exists
 	public Category getParentCategory()
 	{
