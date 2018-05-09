@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class FoodItemList
 {
 
-	private ArrayList<FoodItem> contents;
+	private ArrayList<FoodItem> contents = new ArrayList<FoodItem>();
 
 	// Constructs an empty food item list
 	public FoodItemList()
@@ -17,17 +18,27 @@ public class FoodItemList
 	{
 		this.contents = foodItems;
 	}
+	
+	// Returns the contents (ArrayList) of food items
+	public ArrayList<FoodItem> getContents(){
+		return contents;
+	}
 
 	// Adds a food item to contents
 	public void addFoodItem(FoodItem item)
 	{
 		contents.add(item);
+		item.setInList(this);
 	}
 
 	// Adds multiple food items to contents
 	public void addFoodItem(ArrayList<FoodItem> item)
 	{
 		contents.addAll(item);
+		for (FoodItem f : item)
+		{
+			f.setInList(this);
+		}
 	}
 
 	// Removes a food item from contents
@@ -45,14 +56,16 @@ public class FoodItemList
 	// Sorts the food item lists contents, based on sorting type
 	public void sortList(SortingMethod sortingType)
 	{
-		switch (sortingType) {
-		
-			case ALPHABETICAL: contents.sort(String.CASE_INSENSITIVE_ORDER);
-			System.out.print(arg0);
+		switch (sortingType)
+		{
+//TODO: test if this works
+		case ALPHABETICAL:
+			contents.sort(FoodItem.FoodNameComparator);
 			break;
-			
-			// Fix sorting
-			case CATEGORY: contents.sort(String.);
+
+		case CATEGORY:
+			contents.sort(FoodItem.MainCatagoryNameComparator);
+			break;
 		}
 	}
 

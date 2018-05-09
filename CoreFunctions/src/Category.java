@@ -7,7 +7,7 @@ public class Category
 	private int id;
 	private String name;
 	private QuantityUnit unit;
-	private ArrayList<Category> subcategories;
+	private ArrayList<Category> subcategories = new ArrayList<Category>();
 	private Category parentCatagory;
 
 	// Constructor for a category, that has no parent category (i.e. main
@@ -19,10 +19,10 @@ public class Category
 	}
 
 	// Constructor for a category, that has a parent category (i.e. subcategories)
-	public Category(String name, QuantityUnit unit, Category parentCategory)
+	public Category(String name, QuantityUnit unit, Category newParentCategory)
 	{
 		this(name, unit);
-		this.parentCatagory = parentCategory;
+		newParentCategory.addSubcategory(this);
 	}
 
 	// Returns the category's ID
@@ -79,14 +79,27 @@ public class Category
 	{
 		this.parentCatagory = parentCatagory;
 	}
+	
+	//TODO: add new methods to class diagram
+		public Category getMainCategory()
+		{
+			if (!this.isMainCategory())
+			{
+				return parentCatagory.getMainCategory();
+			}
+			else
+			{
+				return this;
+			}
+		}
 
-	// Search through this category's list of subcategory, and returns a subcategory
+	// Search through this category's list of subcategories, and returns a subcategory
 	// with a matching name. Return null if no category of that name exists.
 	public Category findSubcategory(String name)
 	{
 		for (Category c : subcategories)
 		{
-			if (c.getName().toLowerCase() == name.toLowerCase())
+			if (c.getName().equalsIgnoreCase(name))
 			{
 				return c;
 			}
