@@ -9,6 +9,7 @@ public class FoodItem
 	private Category category;
 	private FoodItemList inList;
 
+
 	// Create a food item of a specific type (category)
 	public FoodItem(Category category)
 	{
@@ -44,6 +45,7 @@ public class FoodItem
 		return category.getName();
 	}
 	
+	// Returns this food items category
 	public Category getCategory()
 	{
 		return category;

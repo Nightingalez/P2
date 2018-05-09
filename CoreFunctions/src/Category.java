@@ -74,10 +74,7 @@ public class Category
 		this.parentCategory = parentCatagory;
 	}
 	
-<<<<<<< HEAD
 	//Finds the uppermost main category that this category belongs under. Returns itself if it is a main category
-=======
->>>>>>> 24cd3167ac814beaa245e183caf774a38714957d
 		public Category getMainCategory()
 		{
 			if (!this.isMainCategory())
