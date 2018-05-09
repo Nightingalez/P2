@@ -18,9 +18,10 @@ public class FoodItemList
 	{
 		this.contents = foodItems;
 	}
-	
+
 	// Returns the contents (ArrayList) of food items
-	public ArrayList<FoodItem> getContents(){
+	public ArrayList<FoodItem> getContents()
+	{
 		return contents;
 	}
 
@@ -53,12 +54,41 @@ public class FoodItemList
 		contents.removeAll(item);
 	}
 
+	// Removes a food item by ID
+	public void removeFoodItem(int id)
+	{
+		for (FoodItem f : contents)
+		{
+			if (f.getID() == id)
+			{
+				contents.remove(f);
+				break;
+			}
+		}
+	}
+
+	// Removes food items by IDs
+	public void removeFoodItem(int[] id)
+	{
+		for (int i : id)
+		{
+			for (FoodItem f : contents)
+			{
+				if (f.getID() == i)
+				{
+					contents.remove(f);
+					break;
+				}
+			}
+		}
+	}
+
 	// Sorts the food item lists contents, based on sorting type
 	public void sortList(SortingMethod sortingType)
 	{
 		switch (sortingType)
 		{
-//TODO: test if this works
+		// TODO: test if this works
 		case ALPHABETICAL:
 			contents.sort(FoodItem.FoodNameComparator);
 			break;
@@ -73,15 +103,34 @@ public class FoodItemList
 	// missing from this list
 	public FoodItemList findMissingItemsInList(FoodItemList comparedList)
 	{
-		return null;
-		// TODO Add proper return
+		return findMissingItemsInList(this, comparedList);
 	}
 
 	// Compare the contents of two food item lists. Return what is missing from the
 	// first list
 	public static FoodItemList findMissingItemsInList(FoodItemList firstList, FoodItemList comparedList)
 	{
-		return null;
-		// TODO Add proper return
+		FoodItemList missing = new FoodItemList();
+		
+		for (FoodItem c : comparedList.getContents())
+		{
+			boolean found = false;
+			for (FoodItem f : firstList.getContents())
+			{
+				if (c.getCategory() == f.getCategory())
+				{
+					found = true;
+					break;
+				}
+			}
+			
+			if(!found)
+			{
+				missing.addFoodItem(c.clone());
+			}
+		}
+		
+		return missing;
+
 	}
 }

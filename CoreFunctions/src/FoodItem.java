@@ -2,6 +2,8 @@ import java.util.Comparator;
 
 public class FoodItem
 {
+	private static int highestKnownID = 0;
+	private int id;
 
 	private int amount;
 	private Category category;
@@ -11,6 +13,7 @@ public class FoodItem
 	public FoodItem(Category category)
 	{
 		this.category = category;
+		generateID();
 	}
 
 	// Create a food item of a specific type (category), in a specific list (inList)
@@ -39,6 +42,11 @@ public class FoodItem
 	public String getName()
 	{
 		return category.getName();
+	}
+	
+	public Category getCategory()
+	{
+		return category;
 	}
 
 	// Returns the amount of the food item
@@ -69,6 +77,25 @@ public class FoodItem
 	public Category getMainCategory()
 	{
 		return category.getMainCategory();
+	}
+	
+	// Creates a clone of this food item. NOTE: it does not inherit which list it exists in.
+	public FoodItem clone()
+	{
+		return new FoodItem(amount, category);
+	}
+
+	// Generate a new ID for this food item
+	public void generateID()
+	{
+		this.id = highestKnownID + 1;
+		highestKnownID += 1;
+	}
+
+	// Returns the category's ID
+	public int getID()
+	{
+		return id;
 	}
 
 	/* Comparators for sorting */
