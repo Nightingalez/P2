@@ -59,4 +59,14 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="361dp"
+        android:layout_height="66dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
+        android:text="Add items to shopping list"
+        android:textColor="#FFFFFF" />
+
 </android.widget.RelativeLayout>
