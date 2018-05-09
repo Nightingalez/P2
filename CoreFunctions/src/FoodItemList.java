@@ -88,7 +88,6 @@ public class FoodItemList
 	{
 		switch (sortingType)
 		{
-		// TODO: test if this works
 		case ALPHABETICAL:
 			contents.sort(FoodItem.FoodNameComparator);
 			break;
