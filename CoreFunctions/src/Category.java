@@ -25,12 +25,6 @@ public class Category
 		newParentCategory.addSubcategory(this);
 	}
 
-	// Returns the category's ID
-	public int getID()
-	{
-		return id;
-	}
-
 	// Returns the name of the category
 	public String getName()
 	{
@@ -80,7 +74,7 @@ public class Category
 		this.parentCategory = parentCatagory;
 	}
 	
-	//TODO: add new methods to class diagram
+	//Finds the uppermost main category that this category belongs under. Returns itself if it is a main category
 		public Category getMainCategory()
 		{
 			if (!this.isMainCategory())
@@ -118,5 +112,11 @@ public class Category
 	{
 		this.id = highestKnownID + 1;
 		highestKnownID += 1;
+	}
+
+	// Returns the category's ID
+	public int getID()
+	{
+		return id;
 	}
 }

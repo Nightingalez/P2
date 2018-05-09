@@ -1,4 +1,3 @@
-package com.b139.foodmate;
 import java.util.ArrayList;
 
 public class Recipe extends FoodItemList{

@@ -9,7 +9,8 @@ public class FoodItem
 	private Category category;
 	private FoodItemList inList;
 
-	// Create a food item of a specific type (category) TODO: Add to class diagram
+
+	// Create a food item of a specific type (category)
 	public FoodItem(Category category)
 	{
 		this.category = category;
@@ -44,9 +45,16 @@ public class FoodItem
 		return category.getName();
 	}
 	
+	// Returns this food items category
 	public Category getCategory()
 	{
 		return category;
+	}
+
+	// Finds the main category that this food item belongs under
+	public Category getMainCategory()
+	{
+		return category.getMainCategory();
 	}
 
 	// Returns the amount of the food item
@@ -73,12 +81,6 @@ public class FoodItem
 		this.inList = list;
 	}
 
-	// TODO: add new methods to class diagram
-	public Category getMainCategory()
-	{
-		return category.getMainCategory();
-	}
-	
 	// Creates a clone of this food item. NOTE: it does not inherit which list it exists in.
 	public FoodItem clone()
 	{

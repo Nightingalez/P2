@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 public class FoodItemList
 {
@@ -88,7 +85,6 @@ public class FoodItemList
 	{
 		switch (sortingType)
 		{
-		// TODO: test if this works
 		case ALPHABETICAL:
 			contents.sort(FoodItem.FoodNameComparator);
 			break;
