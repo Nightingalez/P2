@@ -159,8 +159,23 @@ public class DataManager {
     public void defaultDataGenerator(Context ctx)
     {
         //Default main categories
+        Category meat = new Category("Meat", QuantityUnit.GRAMS);
+        mainCategories.add(meat);
+        Category vegetable = new Category("Vegetable", QuantityUnit.PIECES);
+        mainCategories.add(vegetable);
+        Category dairy = new Category("Dairy", QuantityUnit.GRAMS);
+        mainCategories.add(dairy);
+        Category fruit = new Category("Fruit", QuantityUnit.PIECES);
+        mainCategories.add(fruit);
 
         //Default subcategories
+        Category pork = new Category("Pork", QuantityUnit.GRAMS, meat);
+        Category apple = new Category("Apple", QuantityUnit.PIECES, fruit);
+        Category garlic = new Category("Garlic", QuantityUnit.PIECES, vegetable);
+        Category parmesan = new Category("Parmesan", QuantityUnit.GRAMS, dairy);
+        Category anchovies = new Category("Anchovies", QuantityUnit.GRAMS, meat);
+        Category blackPepper = new Category("Black Pepper", QuantityUnit.GRAMS, fruit);
+        Category lemon = new Category("Lemon", QuantityUnit.MILLILITRES, fruit);
 
         //Default recipes
 
