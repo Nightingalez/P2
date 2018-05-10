@@ -167,8 +167,53 @@ public class DataManager {
         mainCategories.add(dairy);
         Category fruit = new Category("Fruit", QuantityUnit.PIECES);
         mainCategories.add(fruit);
+        Category bakery = new Category("Bakery", QuantityUnit.PIECES);
+        mainCategories.add(bakery);
 
-        //Default subcategories
+        Category snacks = new Category("Snacks", QuantityUnit.PIECES);
+        mainCategories.add(snacks);
+
+        Category beverages = new Category("Beverages", QuantityUnit.PIECES);
+        mainCategories.add(beverages);
+
+        Category grains = new Category("Grains", QuantityUnit.GRAMS);
+        mainCategories.add(grains);
+
+        //Default subCategories
+        Category bread = new Category("Bread", QuantityUnit.PIECES, bakery);
+        Category ryebread = new Category("Rye Bread", QuantityUnit.PIECES, bakery);
+        Category coissant = new Category("Croissant", QuantityUnit.PIECES, bakery);
+        Category pie = new Category("Pie", QuantityUnit.PIECES, bakery);
+        Category pastry = new Category("Pastry", QuantityUnit.PIECES, bakery);
+        Category muffin = new Category("Muffin", QuantityUnit.PIECES, bakery);
+        Category cookie = new Category("Cookie", QuantityUnit.PIECES, bakery);
+        Category baguette = new Category("Baguette", QuantityUnit.PIECES, bakery);
+
+        Category chips = new Category("Chips", QuantityUnit.PIECES, snacks);
+        Category nuts = new Category("Nuts", QuantityUnit.PIECES, snacks);
+        Category popcorn = new Category("Popcorn", QuantityUnit.PIECES, snacks);
+        Category candy = new Category("Candy", QuantityUnit.PIECES, snacks);
+        Category chocolate = new Category("Chocolate", QuantityUnit.PIECES, snacks);
+        Category granolabar = new Category("Granola Bar", QuantityUnit.PIECES, snacks);
+        Category trailmix = new Category("Trail Mix", QuantityUnit.PIECES, snacks);
+
+        Category water = new Category("Water", QuantityUnit.PIECES, beverages);
+        Category soda = new Category("Soda", QuantityUnit.PIECES, beverages);
+        Category beer = new Category("Beer", QuantityUnit.PIECES, beverages);
+        Category tea = new Category("Tea", QuantityUnit.PIECES, beverages);
+        Category coffee = new Category("Coffee", QuantityUnit.PIECES, beverages);
+        Category juice = new Category("Juice", QuantityUnit.PIECES, beverages);
+        Category wine = new Category("Wine", QuantityUnit.PIECES, beverages);
+        Category spirits = new Category("Spirits", QuantityUnit.PIECES, beverages);
+
+        Category wheat = new Category("Wheat", QuantityUnit.GRAMS, grains);
+        Category rice = new Category("Rice", QuantityUnit.GRAMS, grains);
+        Category oat = new Category("Oat", QuantityUnit.GRAMS, grains);
+        Category cereal = new Category("Cereal", QuantityUnit.GRAMS, grains);
+        Category pasta = new Category("Pasta", QuantityUnit.GRAMS, grains);
+        Category crackers = new Category("Crackers", QuantityUnit.GRAMS, grains);
+        Category tortilla = new Category("Tortilla", QuantityUnit.GRAMS, grains);
+
         Category pork = new Category("Pork", QuantityUnit.GRAMS, meat);
         Category apple = new Category("Apple", QuantityUnit.PIECES, fruit);
         Category garlic = new Category("Garlic", QuantityUnit.PIECES, vegetable);
