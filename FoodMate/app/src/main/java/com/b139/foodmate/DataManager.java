@@ -16,6 +16,7 @@ public class DataManager {
     //TODO: create default file names
     private static ArrayList<Category> mainCategories;
     final static String CATEGORIES = "categories.txt";
+    final static String DEFAULT_CATEGORIES = "default_categories.txt";
 
     private static FoodItemList shoppingList;
     final static String SHOPPING = "shopping.txt";
@@ -25,6 +26,7 @@ public class DataManager {
 
     private static ArrayList<Recipe> recipes;
     final static String RECIPES = "recipes.txt";
+    final static String DEFAULT_RECIPES = "default_recipes.txt";
 
     public void saveData(String filename, String[] stringArray, Context ctx) {
         OutputStreamWriter outputStreamWriter;
@@ -118,6 +120,16 @@ public class DataManager {
     }
 
     //TODO: create a initializer for figuring out what and when to load
+    public void dataInitializer(Context ctx)
+    {
+
+    }
+
+    //TODO: create method for checking if a file exists
+    public boolean checkFileExists(String name, Context ctx)
+    {
+
+    }
 
     //TODO: create a shutdown saver
 
@@ -144,4 +156,13 @@ public class DataManager {
     //TODO: create reset
 
     //TODO: create a method that generates/restores default save files
+    public void defaultDataGenerator(Context ctx)
+    {
+        //Default main categories
+
+        //Default subcategories
+
+        //Default recipes
+
+    }
 }
