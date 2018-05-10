@@ -242,20 +242,30 @@ public class DataManager {
         Category tomato = new Category("Tomato", QuantityUnit.PIECES, vegetable);
         Category cucumber = new Category("Cucumber", QuantityUnit.PIECES, vegetable);
         Category onion = new Category("Onion", QuantityUnit.PIECES, vegetable);
+        Category potato = new Category("Potato", QuantityUnit.GRAMS, vegetable);
+        Category broccoli = new Category("Broccoli", QuantityUnit.PIECES, vegetable);
+        Category celery = new Category("Celery", QuantityUnit.PIECES, vegetable);
+        Category beans = new Category("Beans", QuantityUnit.GRAMS, vegetable);
 
         Category parmesan = new Category("Parmesan", QuantityUnit.GRAMS, dairy);
         Category milk = new Category("Milk", QuantityUnit.MILLILITRES, dairy);
         Category butter = new Category("Butter", QuantityUnit.GRAMS, dairy);
-        Category sourCream = new Category("Sour Cream", QuantityUnit.GRAMS, dairy);
+        Category sourcream = new Category("Sour Cream", QuantityUnit.GRAMS, dairy);
         Category cheese = new Category("Cheese", QuantityUnit.GRAMS, dairy);
+        Category yogurt = new Category("Yougurt", QuantityUnit.PIECES, dairy);
+        Category icecream = new Category("Ice Cream", QuantityUnit.MILLILITRES, dairy);
+        Category cottagecheese = new Category("Cottage Cheese", QuantityUnit.MILLILITRES, dairy);
 
-
-        Category blackPepper = new Category("Black Pepper", QuantityUnit.GRAMS, fruit);
-        Category lemon = new Category("Lemon", QuantityUnit.MILLILITRES, fruit);
+        Category lemon = new Category("Lemon", QuantityUnit.PIECES, fruit);
         Category apple = new Category("Apple", QuantityUnit.PIECES, fruit);
         Category banana = new Category("Banana", QuantityUnit.PIECES, fruit);
         Category avocado = new Category("Avocado", QuantityUnit.PIECES, fruit);
-        Category blueberry = new Category("Blueberry", QuantityUnit.PIECES, fruit);
+        Category blueberry = new Category("Blueberry", QuantityUnit.GRAMS, fruit);
+        Category strawberry = new Category("Strawberry", QuantityUnit.GRAMS, fruit);
+        Category peach = new Category("Peach", QuantityUnit.PIECES, fruit);
+        Category grape = new Category("Grapes", QuantityUnit.GRAMS, fruit);
+        Category orange = new Category("Orange", QuantityUnit.PIECES, fruit);
+        Category pineapple = new Category("Pineapple", QuantityUnit.PIECES, fruit);
 
         Category oliveoil = new Category("Olive Oil", QuantityUnit.PIECES, misc);
         Category vegetableoil = new Category("Vegetable Oil", QuantityUnit.PIECES, misc);
