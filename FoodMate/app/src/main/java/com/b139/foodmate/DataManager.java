@@ -274,7 +274,9 @@ public class DataManager {
         Category eggs = new Category("Eggs", QuantityUnit.PIECES, misc);
         Category spices = new Category("Spices", QuantityUnit.GRAMS, misc);
         Category condiments = new Category("Condiments", QuantityUnit.PIECES, misc);
+
         Category ketchup = new Category("Ketchup", QuantityUnit.PIECES, condiments);
+        Category mayonaise = new Category("Mayonaise", QuantityUnit.PIECES, condiments);
 
         //Default recipes
         recipes.add(new Recipe("Classic Burger", new FoodItem[]{
@@ -282,7 +284,8 @@ public class DataManager {
                 new FoodItem(onion), new FoodItem(bread),
                 new FoodItem(garlic), new FoodItem(salt),
                 new FoodItem(pepper), new FoodItem(buns),
-                new FoodItem(lettuce), new FoodItem(tomato)}));
+                new FoodItem(lettuce), new FoodItem(tomato),
+                new FoodItem(ketchup), new FoodItem(mayonaise)}));
 
         recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
                 new FoodItem(olive), new FoodItem(baguette),
