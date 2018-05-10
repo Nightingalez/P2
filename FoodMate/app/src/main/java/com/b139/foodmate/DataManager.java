@@ -252,7 +252,7 @@ public class DataManager {
         Category butter = new Category("Butter", QuantityUnit.GRAMS, dairy);
         Category sourcream = new Category("Sour Cream", QuantityUnit.GRAMS, dairy);
         Category cheese = new Category("Cheese", QuantityUnit.GRAMS, dairy);
-        Category yogurt = new Category("Yougurt", QuantityUnit.PIECES, dairy);
+        Category yogurt = new Category("Yogurt", QuantityUnit.PIECES, dairy);
         Category icecream = new Category("Ice Cream", QuantityUnit.MILLILITRES, dairy);
         Category cottagecheese = new Category("Cottage Cheese", QuantityUnit.MILLILITRES, dairy);
 
@@ -276,7 +276,12 @@ public class DataManager {
         Category condiments = new Category("Condiments", QuantityUnit.PIECES, misc);
 
         //Default recipes
-        recipes.add(new Recipe("Classic Burger", new FoodItem[]{}));
+        recipes.add(new Recipe("Classic Burger", new FoodItem[]{
+                new FoodItem(beef), new FoodItem(eggs),
+                new FoodItem(onion), new FoodItem(bread),
+                new FoodItem(garlic), new FoodItem(salt),
+                new FoodItem(pepper), new FoodItem(buns),
+                new FoodItem(lettuce), new FoodItem(tomato)}));
 
         recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
                 new FoodItem(olive), new FoodItem(baguette),
