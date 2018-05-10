@@ -129,6 +129,7 @@ public class DataManager {
     public boolean checkFileExists(String name, Context ctx)
     {
 
+        return false;
     }
 
     //TODO: create a shutdown saver
@@ -161,12 +162,16 @@ public class DataManager {
         //Default main categories
         Category meat = new Category("Meat", QuantityUnit.GRAMS);
         mainCategories.add(meat);
+
         Category vegetable = new Category("Vegetable", QuantityUnit.PIECES);
         mainCategories.add(vegetable);
+
         Category dairy = new Category("Dairy", QuantityUnit.GRAMS);
         mainCategories.add(dairy);
+
         Category fruit = new Category("Fruit", QuantityUnit.PIECES);
         mainCategories.add(fruit);
+
         Category bakery = new Category("Bakery", QuantityUnit.PIECES);
         mainCategories.add(bakery);
 
