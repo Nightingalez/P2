@@ -274,6 +274,7 @@ public class DataManager {
         Category eggs = new Category("Eggs", QuantityUnit.PIECES, misc);
         Category spices = new Category("Spices", QuantityUnit.GRAMS, misc);
         Category condiments = new Category("Condiments", QuantityUnit.PIECES, misc);
+        Category ketchup = new Category("Ketchup", QuantityUnit.PIECES, condiments);
 
         //Default recipes
         recipes.add(new Recipe("Classic Burger", new FoodItem[]{
