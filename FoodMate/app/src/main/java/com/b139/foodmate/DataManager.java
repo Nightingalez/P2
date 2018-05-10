@@ -184,6 +184,7 @@ public class DataManager {
     //TODO: create reset
 
     //TODO: create a method that generates/restores default save files
+
     public void defaultDataGenerator(Context ctx) {
         //Default main categories
         Category meat = new Category("Meat", QuantityUnit.GRAMS);
@@ -233,7 +234,6 @@ public class DataManager {
         Category dough = new Category("Dough", QuantityUnit.GRAMS, bakery);
         Category tortilla = new Category("Tortilla", QuantityUnit.PIECES, bakery);
 
-
         Category chips = new Category("Chips", QuantityUnit.PIECES, snacks);
         Category nuts = new Category("Nuts", QuantityUnit.PIECES, snacks);
         Category popcorn = new Category("Popcorn", QuantityUnit.PIECES, snacks);
@@ -269,6 +269,7 @@ public class DataManager {
         Category ribs = new Category("Ribs", QuantityUnit.GRAMS, meat);
         Category salami = new Category("Salami", QuantityUnit.GRAMS, meat);
         Category ham = new Category("Ham", QuantityUnit.GRAMS, meat);
+        Category pepperoni = new Category("Pepperoni", QuantityUnit.PIECES, meat);
 
         Category garlic = new Category("Garlic", QuantityUnit.PIECES, vegetable);
         Category lettuce = new Category("Lettuce", QuantityUnit.GRAMS, vegetable);
@@ -311,8 +312,6 @@ public class DataManager {
         Category jam = new Category("Jam", QuantityUnit.PIECES, misc);
         Category honey = new Category("Honey", QuantityUnit.PIECES, misc);
 
-
-
         Category salt = new Category("Salt", QuantityUnit.GRAMS, spices);
         Category pepper = new Category("Pepper", QuantityUnit.GRAMS, spices);
         Category paprika = new Category("Paprika", QuantityUnit.GRAMS, spices);
@@ -353,6 +352,7 @@ public class DataManager {
 
         recipes.add(new Recipe("Pizza", new FoodItem[]{
                 new FoodItem(dough), new FoodItem(cheese),
-                new FoodItem(tomatoSauce)}));
+                new FoodItem(tomatoSauce), new FoodItem(pepperoni),
+                new FoodItem(oregano)}));
     }
 }
