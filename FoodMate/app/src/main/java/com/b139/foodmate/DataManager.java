@@ -184,6 +184,7 @@ public class DataManager {
     //TODO: create reset
 
     //TODO: create a method that generates/restores default save files
+
     public void defaultDataGenerator(Context ctx) {
         //Default main categories
         Category meat = new Category("Meat", QuantityUnit.GRAMS);
@@ -233,8 +234,8 @@ public class DataManager {
         Category baguette = new Category("Baguette", QuantityUnit.PIECES, bakery);
         Category cake = new Category("Cake", QuantityUnit.PIECES, bakery);
         Category buns = new Category("Buns", QuantityUnit.PIECES, bakery);
+        Category dough = new Category("Dough", QuantityUnit.GRAMS, bakery);
         Category tortilla = new Category("Tortilla", QuantityUnit.PIECES, bakery);
-
 
         Category chips = new Category("Chips", QuantityUnit.PIECES, snacks);
         Category nuts = new Category("Nuts", QuantityUnit.PIECES, snacks);
@@ -318,8 +319,6 @@ public class DataManager {
         Category jam = new Category("Jam", QuantityUnit.PIECES, misc);
         Category honey = new Category("Honey", QuantityUnit.PIECES, misc);
 
-
-
         Category salt = new Category("Salt", QuantityUnit.GRAMS, spices);
         Category pepper = new Category("Pepper", QuantityUnit.GRAMS, spices);
         Category paprika = new Category("Paprika", QuantityUnit.GRAMS, spices);
@@ -332,7 +331,8 @@ public class DataManager {
         Category cumin = new Category("Cumin", QuantityUnit.GRAMS, spices);
 
         Category ketchup = new Category("Ketchup", QuantityUnit.PIECES, condiments);
-        Category mayo = new Category("Mayo", QuantityUnit.PIECES, condiments);
+        Category mayonaise = new Category("Mayonaise", QuantityUnit.PIECES, condiments);
+        Category tomatoSauce = new Category("Tomato Sauce", QuantityUnit.PIECES, condiments);
         Category mustard = new Category("Mustard", QuantityUnit.PIECES, condiments);
         Category remoulade = new Category("Remoulade", QuantityUnit.PIECES, condiments);
         Category bbq = new Category("Barbecue Sauce", QuantityUnit.PIECES, condiments);
@@ -348,7 +348,7 @@ public class DataManager {
                 new FoodItem(garlic), new FoodItem(salt),
                 new FoodItem(pepper), new FoodItem(buns),
                 new FoodItem(lettuce), new FoodItem(tomato),
-                new FoodItem(ketchup), new FoodItem(mayo)}));
+                new FoodItem(ketchup), new FoodItem(mayonaise)}));
 
         recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
                 new FoodItem(olive), new FoodItem(baguette),
@@ -357,5 +357,10 @@ public class DataManager {
                 new FoodItem(anchovies), new FoodItem(eggs),
                 new FoodItem(pepper), new FoodItem(salt),
                 new FoodItem(lettuce)}));
+
+        recipes.add(new Recipe("Pizza", new FoodItem[]{
+                new FoodItem(dough), new FoodItem(cheese),
+                new FoodItem(tomatoSauce), new FoodItem(pepperoni),
+                new FoodItem(oregano)}));
     }
 }
