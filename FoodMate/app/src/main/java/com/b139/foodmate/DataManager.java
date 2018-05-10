@@ -189,6 +189,9 @@ public class DataManager {
         Category meat = new Category("Meat", QuantityUnit.GRAMS);
         mainCategories.add(meat);
 
+        Category coldcuts = new Category("Cold Cuts", QuantityUnit.PIECES);
+        mainCategories.add(coldcuts);
+
         Category vegetable = new Category("Vegetable", QuantityUnit.PIECES);
         mainCategories.add(vegetable);
 
@@ -266,9 +269,14 @@ public class DataManager {
         Category chicken = new Category("Chicken", QuantityUnit.GRAMS, meat);
         Category bacon = new Category("Bacon", QuantityUnit.GRAMS, meat);
         Category ribs = new Category("Ribs", QuantityUnit.GRAMS, meat);
-        Category salami = new Category("Salami", QuantityUnit.GRAMS, meat);
-        Category ham = new Category("Ham", QuantityUnit.GRAMS, meat);
 
+        Category salami = new Category("Salami", QuantityUnit.GRAMS, coldcuts);
+        Category ham = new Category("Ham", QuantityUnit.GRAMS, coldcuts);
+        Category pastrami = new Category("Pastrami", QuantityUnit.GRAMS, coldcuts);
+        Category bologna = new Category("Bologna", QuantityUnit.GRAMS, coldcuts);
+        Category pepperoni = new Category("Pepperoni", QuantityUnit.GRAMS, coldcuts);
+        Category roastbeef = new Category("Roast Beef", QuantityUnit.GRAMS, coldcuts);
+        
         Category garlic = new Category("Garlic", QuantityUnit.PIECES, vegetable);
         Category lettuce = new Category("Lettuce", QuantityUnit.GRAMS, vegetable);
         Category olive = new Category("Olives", QuantityUnit.PIECES, vegetable);
@@ -330,7 +338,7 @@ public class DataManager {
         Category bbq = new Category("Barbecue Sauce", QuantityUnit.PIECES, condiments);
         Category soysauce = new Category("Soy Sauce", QuantityUnit.PIECES, condiments);
         Category fishsauce = new Category("Fish Sauce", QuantityUnit.PIECES, condiments);
-        
+
 
 
         //Default recipes
@@ -340,7 +348,7 @@ public class DataManager {
                 new FoodItem(garlic), new FoodItem(salt),
                 new FoodItem(pepper), new FoodItem(buns),
                 new FoodItem(lettuce), new FoodItem(tomato),
-                new FoodItem(ketchup), new FoodItem(mayonaise)}));
+                new FoodItem(ketchup), new FoodItem(mayo)}));
 
         recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
                 new FoodItem(olive), new FoodItem(baguette),
