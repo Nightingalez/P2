@@ -128,7 +128,6 @@ public class DataManager {
     //TODO: create method for checking if a file exists
     public boolean checkFileExists(String name, Context ctx)
     {
-
         return false;
     }
 
@@ -196,7 +195,11 @@ public class DataManager {
         Category muffin = new Category("Muffin", QuantityUnit.PIECES, bakery);
         Category cookie = new Category("Cookie", QuantityUnit.PIECES, bakery);
         Category baguette = new Category("Baguette", QuantityUnit.PIECES, bakery);
+<<<<<<< HEAD
         Category cake = new Category("Cake", QuantityUnit.PIECES, bakery);
+=======
+        Category buns = new Category("Buns", QuantityUnit.PIECES, bakery);
+>>>>>>> 7f6ad6a181ce27c714cc5a472b0f35d8a25e4613
 
         Category chips = new Category("Chips", QuantityUnit.PIECES, snacks);
         Category nuts = new Category("Nuts", QuantityUnit.PIECES, snacks);
@@ -225,12 +228,29 @@ public class DataManager {
         Category tortilla = new Category("Tortilla", QuantityUnit.GRAMS, grains);
 
         Category pork = new Category("Pork", QuantityUnit.GRAMS, meat);
-        Category apple = new Category("Apple", QuantityUnit.PIECES, fruit);
-        Category garlic = new Category("Garlic", QuantityUnit.PIECES, vegetable);
-        Category parmesan = new Category("Parmesan", QuantityUnit.GRAMS, dairy);
         Category anchovies = new Category("Anchovies", QuantityUnit.GRAMS, meat);
+        Category beef = new Category("Beef", QuantityUnit.GRAMS, meat);
+        Category sausage = new Category("Sausage", QuantityUnit.PIECES, meat);
+        Category steak = new Category("Steak", QuantityUnit.GRAMS, meat);
+
+        Category garlic = new Category("Garlic", QuantityUnit.PIECES, vegetable);
+        Category lettuce = new Category("Lettuce", QuantityUnit.GRAMS, vegetable);
+        Category olives = new Category("Olives", QuantityUnit.PIECES, vegetable);
+        Category tomato = new Category("Tomato", QuantityUnit.PIECES, vegetable);
+        Category cucumber = new Category("Cucumber", QuantityUnit.PIECES, vegetable);
+        Category onion = new Category("Onion", QuantityUnit.PIECES, vegetable);
+
+        Category parmesan = new Category("Parmesan", QuantityUnit.GRAMS, dairy);
+        Category milk = new Category("Milk", QuantityUnit.MILLILITRES, dairy);
+        Category butter = new Category("Butter", QuantityUnit.GRAMS, dairy);
+        Category sourCream = new Category("Sour Cream", QuantityUnit.MILLILITRES, dairy);
+
         Category blackPepper = new Category("Black Pepper", QuantityUnit.GRAMS, fruit);
         Category lemon = new Category("Lemon", QuantityUnit.MILLILITRES, fruit);
+        Category apple = new Category("Apple", QuantityUnit.PIECES, fruit);
+        Category banana = new Category("Banana", QuantityUnit.PIECES, fruit);
+        Category avocado = new Category("Avocado", QuantityUnit.PIECES, fruit);
+        Category blueberry = new Category("Blueberry", QuantityUnit.PIECES, fruit);
 
         Category oliveoil = new Category("Olive Oil", QuantityUnit.PIECES, misc);
         Category vegetableoil = new Category("Vegetable Oil", QuantityUnit.PIECES, misc);
@@ -241,6 +261,7 @@ public class DataManager {
         Category condiments = new Category("Condiments", QuantityUnit.PIECES, misc);
 
         //Default recipes
-
+        recipes.add(new Recipe("Classic Burger", new FoodItem[]{}));
+        recipes.add(new Recipe("Caesar Salad", new FoodItem[]{new FoodItem(olives), new FoodItem(baguette)}));
     }
 }
