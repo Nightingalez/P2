@@ -1,6 +1,7 @@
 package com.b139.foodmate;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -11,7 +12,9 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class DataManager {
@@ -29,12 +32,12 @@ public class DataManager {
     final static String RECIPES = "recipes.txt";
     final static String DEFAULT_RECIPES = "default_recipes.txt";
 
-    public void saveData(String filename, String[] stringArray, Context ctx) {
+    public void saveData(String filename, String[] stringData, Context ctx) {
         OutputStreamWriter outputStreamWriter;
 
         try {
             outputStreamWriter = new OutputStreamWriter(ctx.openFileOutput(filename, Context.MODE_PRIVATE));
-            for (String s : stringArray) {
+            for (String s : stringData) {
                 outputStreamWriter.write(s + "\n");
             }
             outputStreamWriter.close();
@@ -122,30 +125,25 @@ public class DataManager {
 
     //Initializer for figuring out what and when to load at startup
     public void dataInitializer(Context ctx) {
-        if (checkFileExists(CATEGORIES, ctx))
-        {
-            //TODO: load and restore category data
-        }
-        else
-        {
-            //TODO: load default category data
+        if (checkFileExists(CATEGORIES, ctx)) {
+            //load and restore category data
+            categoryLoader(loadData(CATEGORIES, ctx));
+        } else {
+            //load default category data
+            categoryLoader(loadData(DEFAULT_CATEGORIES, ctx));
         }
 
-        if(checkFileExists(SHOPPING, ctx))
-        {
+        if (checkFileExists(SHOPPING, ctx)) {
             //TODO: load and restore shopping list data
         }
 
-        if (checkFileExists(STORAGE, ctx))
-        {
+        if (checkFileExists(STORAGE, ctx)) {
             //TODO: load and restore storage list data
         }
 
-        if (checkFileExists(RECIPES,ctx))
-        {
+        if (checkFileExists(RECIPES, ctx)) {
             //TODO: load and restore recipes
-        } else
-        {
+        } else {
             //TODO: load default recipes
         }
     }
@@ -161,13 +159,141 @@ public class DataManager {
 
     //TODO: create a shutdown saver
 
-    //TODO: create category loader
+    //takes a string array of information from a category save file, and rebuilds them
+    public static void categoryLoader(String[] stringData) {
+        int i = 0;
+        ArrayList<Category> temp = new ArrayList<Category>();
 
-    //TODO: create category stringarray generator
+        while (i < stringData.length) {
+            if (stringData[i] == DataTag.CATEGORY) {
+                i++; //skip the first line with the CAT tag, go to the ID
+                int id = Integer.parseInt(stringData[i]);
+                i++; //go to the name
+                String name = stringData[i];
+                i++; // go to the quantity unit
+                QuantityUnit unit = QuantityUnit.values()[Integer.parseInt(stringData[i])];
+                i++; //go to the parent id
+                int parentID = id = Integer.parseInt(stringData[i]);
 
-    //TODO: create food item loader
+                if (parentID != 0) {// if the category has no parent, create the category and add it directly to the main category list
+                    Category loaded = new Category(name, unit);
+                    loaded.setID(id);
+                    mainCategories.add(loaded);
+                    temp.add(loaded);
 
-    //TODO: create food item stringarray generator
+                } else { // else, find its parent, and add it under it
+                    Category parent = null;
+                    for (Category c : temp) {
+                        if (c.getID() == id) {
+                            parent = c;
+                        }
+                    }
+
+                    if (parent != null) { //if the correct parent could be found, create the category
+                        Category loaded = new Category(name, unit, parent);
+                        loaded.setID(id);
+                        parent.addSubcategory(loaded);
+                        temp.add(loaded);
+                    }
+                }
+            } else if (stringData[i] == DataTag.END) { //if an additional end tag is hit, stop loading
+                break;
+            }
+        }
+    }
+
+    // lists all categories, including subcategories, in a list
+    public static ArrayList<Category> listAllCategories(ArrayList<Category> list) {
+        ArrayList<Category> result = new ArrayList<Category>();
+
+        for (Category c : list) {
+            result.add(c);
+            if (c.hasSubcategories()) {
+                result.addAll(listAllCategories(c.getSubcategories()));
+            }
+        }
+        return result;
+    }
+
+
+    //creates a category string array, which contains all categories in the system
+    public static String[] categoryStringGenerator() {
+        //first create a temporary list of all categories
+        ArrayList<Category> tempCat = new ArrayList<Category>();
+        for (Category c : mainCategories) {
+            tempCat.addAll(c.getCategoryBranch());
+        }
+
+        //then create a temporary array list of strings
+        ArrayList<String> tempString = new ArrayList<String>();
+
+        //add category strings to list
+        for (Category c : tempCat) {
+            Collections.addAll(tempString, categoryStrings(c));
+        }
+
+        //add final end tag
+        tempString.add(DataTag.END);
+
+        //convert and return string array
+        String[] result = new String[tempString.size()];
+        tempString.toArray(result);
+        return result;
+
+    }
+
+    //creates a string array from a category
+    public static String[] categoryStrings(Category category) {
+        String[] result = new String[]{
+                DataTag.CATEGORY,
+                String.valueOf(category.getID()),
+                category.getName(),
+                String.valueOf(category.getParentCategory().getID()),
+                DataTag.END
+        };
+        return result;
+    }
+
+    // recreate food items from string data
+    public static FoodItem foodItemLoader(String[] stringData) {
+        int amount = Integer.parseInt(stringData[1]);
+        int catId = Integer.parseInt(stringData[2]);
+
+        //find the correct category based on id
+        Category foodItemCategory = null;
+        for (Category c : mainCategories) {
+            boolean found = false;
+
+            for (Category t : c.getCategoryBranch()) {
+                if (t.getID() == catId) {
+                    foodItemCategory = t;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) {
+                break;
+            }
+        }
+
+        if (foodItemCategory != null) {
+            //rebuild and return the food item
+            return new FoodItem(amount, foodItemCategory);
+        }
+        return null;
+    }
+
+    //creates a string array from a food item
+    public static String[] foodItemStrings(FoodItem item) {
+        String[] result = new String[]{
+                DataTag.ITEM,
+                String.valueOf(item.getAmount()),
+                String.valueOf(item.getCategory().getID()),
+                DataTag.END
+        };
+        return result;
+    }
 
     //TODO: create food item list loader
 
