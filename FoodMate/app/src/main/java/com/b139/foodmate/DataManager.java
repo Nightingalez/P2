@@ -184,6 +184,9 @@ public class DataManager {
         Category grains = new Category("Grains", QuantityUnit.GRAMS);
         mainCategories.add(grains);
 
+        Category misc = new Category(name: "Misc", QuantityUnit.PIECES);
+        mainCategories.add(misc);
+
         //Default subCategories
         Category bread = new Category("Bread", QuantityUnit.PIECES, bakery);
         Category ryebread = new Category("Rye Bread", QuantityUnit.PIECES, bakery);
@@ -193,6 +196,7 @@ public class DataManager {
         Category muffin = new Category("Muffin", QuantityUnit.PIECES, bakery);
         Category cookie = new Category("Cookie", QuantityUnit.PIECES, bakery);
         Category baguette = new Category("Baguette", QuantityUnit.PIECES, bakery);
+        Category cake = new Category("Cake", QuantityUnit.PIECES, bakery);
 
         Category chips = new Category("Chips", QuantityUnit.PIECES, snacks);
         Category nuts = new Category("Nuts", QuantityUnit.PIECES, snacks);
@@ -212,6 +216,7 @@ public class DataManager {
         Category spirits = new Category("Spirits", QuantityUnit.PIECES, beverages);
 
         Category wheat = new Category("Wheat", QuantityUnit.GRAMS, grains);
+        Category flour = new Category("Flour", QuantityUnit.GRAMS, grains);
         Category rice = new Category("Rice", QuantityUnit.GRAMS, grains);
         Category oat = new Category("Oat", QuantityUnit.GRAMS, grains);
         Category cereal = new Category("Cereal", QuantityUnit.GRAMS, grains);
@@ -226,6 +231,14 @@ public class DataManager {
         Category anchovies = new Category("Anchovies", QuantityUnit.GRAMS, meat);
         Category blackPepper = new Category("Black Pepper", QuantityUnit.GRAMS, fruit);
         Category lemon = new Category("Lemon", QuantityUnit.MILLILITRES, fruit);
+
+        Category oliveoil = new Category("Olive Oil", QuantityUnit.PIECES, misc);
+        Category vegetableoil = new Category("Vegetable Oil", QuantityUnit.PIECES, misc);
+        Category salt = new Category("Salt", QuantityUnit.GRAMS, misc);
+        Category pepper = new Category("Pepper", QuantityUnit.GRAMS, misc);
+        Category eggs = new Category("Eggs", QuantityUnit.PIECES, misc);
+        Category spices = new Category("Spices", QuantityUnit.GRAMS, misc);
+        Category condiments = new Category("Condiments", QuantityUnit.PIECES, misc);
 
         //Default recipes
 
