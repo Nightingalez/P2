@@ -264,6 +264,7 @@ public class DataManager {
 
         Category pork = new Category("Pork", QuantityUnit.GRAMS, meat);
         Category anchovies = new Category("Anchovies", QuantityUnit.GRAMS, meat);
+        Category tuna = new Category("Tuna", QuantityUnit.GRAMS, meat);
         Category beef = new Category("Beef", QuantityUnit.GRAMS, meat);
         Category sausage = new Category("Sausage", QuantityUnit.PIECES, meat);
         Category steak = new Category("Steak", QuantityUnit.GRAMS, meat);
@@ -318,6 +319,7 @@ public class DataManager {
         Category nutella = new Category("Nutella", QuantityUnit.PIECES, misc);
         Category jam = new Category("Jam", QuantityUnit.PIECES, misc);
         Category honey = new Category("Honey", QuantityUnit.PIECES, misc);
+        Category nori = new Category("Nori", QuantityUnit.PIECES, misc);
 
         Category salt = new Category("Salt", QuantityUnit.GRAMS, spices);
         Category pepper = new Category("Pepper", QuantityUnit.GRAMS, spices);
@@ -362,5 +364,16 @@ public class DataManager {
                 new FoodItem(dough), new FoodItem(cheese),
                 new FoodItem(tomatoSauce), new FoodItem(pepperoni),
                 new FoodItem(oregano)}));
+
+        recipes.add(new Recipe("Maki Rolls", new FoodItem[]{
+                new FoodItem(cucumber), new FoodItem(rice),
+                new FoodItem(nori), new FoodItem(tuna),
+                new FoodItem(avocado)}));
+
+        recipes.add(new Recipe("Lasagna", new FoodItem[]{
+                new FoodItem(olive), new FoodItem(beef),
+                new FoodItem(onion), new FoodItem(pepper),
+                new FoodItem(garlic), new FoodItem(tomatoSauce),
+                new FoodItem(tomato)}));
     }
 }
