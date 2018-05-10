@@ -1,19 +1,20 @@
 package com.b139.foodmate;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+import java.util.ArrayList;
+
 
 public class DataManager {
-    //TODO: create default file names
     private static ArrayList<Category> mainCategories;
     final static String CATEGORIES = "categories.txt";
     final static String DEFAULT_CATEGORIES = "default_categories.txt";
@@ -119,16 +120,43 @@ public class DataManager {
         recipes.add(new Recipe("Basic salad", new FoodItem[]{new FoodItem(iceberg), new FoodItem(tomato), new FoodItem(cucumber)}));
     }
 
-    //TODO: create a initializer for figuring out what and when to load
-    public void dataInitializer(Context ctx)
-    {
+    //Initializer for figuring out what and when to load at startup
+    public void dataInitializer(Context ctx) {
+        if (checkFileExists(CATEGORIES, ctx))
+        {
+            //TODO: load and restore category data
+        }
+        else
+        {
+            //TODO: load default category data
+        }
 
+        if(checkFileExists(SHOPPING, ctx))
+        {
+            //TODO: load and restore shopping list data
+        }
+
+        if (checkFileExists(STORAGE, ctx))
+        {
+            //TODO: load and restore storage list data
+        }
+
+        if (checkFileExists(RECIPES,ctx))
+        {
+            //TODO: load and restore recipes
+        } else
+        {
+            //TODO: load default recipes
+        }
     }
 
-    //TODO: create method for checking if a file exists
-    public boolean checkFileExists(String name, Context ctx)
-    {
-
+    //Checks if a file exists
+    public boolean checkFileExists(String filename, Context ctx) {
+        File file = ctx.getFileStreamPath(filename);
+        if (file == null || !file.exists()) {
+            return false;
+        }
+        return true;
     }
 
     //TODO: create a shutdown saver
@@ -156,9 +184,9 @@ public class DataManager {
     //TODO: create reset
 
     //TODO: create a method that generates/restores default save files
-    public void defaultDataGenerator(Context ctx)
-    {
+    public void defaultDataGenerator(Context ctx) {
         //Default main categories
+
 
         //Default subcategories
 
