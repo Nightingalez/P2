@@ -224,6 +224,7 @@ public class DataManager {
         Category baguette = new Category("Baguette", QuantityUnit.PIECES, bakery);
         Category cake = new Category("Cake", QuantityUnit.PIECES, bakery);
         Category buns = new Category("Buns", QuantityUnit.PIECES, bakery);
+        Category dough = new Category("Dough", QuantityUnit.GRAMS, bakery);
 
 
         Category chips = new Category("Chips", QuantityUnit.PIECES, snacks);
@@ -304,6 +305,7 @@ public class DataManager {
 
         Category ketchup = new Category("Ketchup", QuantityUnit.PIECES, condiments);
         Category mayonaise = new Category("Mayonaise", QuantityUnit.PIECES, condiments);
+        Category tomatoSauce = new Category("Tomato Sauce", QuantityUnit.PIECES, condiments);
 
         //Default recipes
         recipes.add(new Recipe("Classic Burger", new FoodItem[]{
@@ -321,5 +323,9 @@ public class DataManager {
                 new FoodItem(anchovies), new FoodItem(eggs),
                 new FoodItem(pepper), new FoodItem(salt),
                 new FoodItem(lettuce)}));
+
+        recipes.add(new Recipe("Pizza", new FoodItem[]{
+                new FoodItem(dough), new FoodItem(cheese),
+                new FoodItem(tomatoSauce)}));
     }
 }
