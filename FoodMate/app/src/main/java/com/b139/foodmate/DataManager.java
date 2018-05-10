@@ -330,6 +330,7 @@ public class DataManager {
         Category bbq = new Category("Barbecue Sauce", QuantityUnit.PIECES, condiments);
         Category soysauce = new Category("Soy Sauce", QuantityUnit.PIECES, condiments);
         Category fishsauce = new Category("Fish Sauce", QuantityUnit.PIECES, condiments);
+        
 
 
         //Default recipes
@@ -338,7 +339,8 @@ public class DataManager {
                 new FoodItem(onion), new FoodItem(bread),
                 new FoodItem(garlic), new FoodItem(salt),
                 new FoodItem(pepper), new FoodItem(buns),
-                new FoodItem(lettuce), new FoodItem(tomato)}));
+                new FoodItem(lettuce), new FoodItem(tomato),
+                new FoodItem(ketchup), new FoodItem(mayonaise)}));
 
         recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
                 new FoodItem(olive), new FoodItem(baguette),
