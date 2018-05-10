@@ -276,7 +276,11 @@ public class DataManager {
         Category condiments = new Category("Condiments", QuantityUnit.PIECES, misc);
 
         //Default recipes
-        recipes.add(new Recipe("Classic Burger", new FoodItem[]{}));
+        recipes.add(new Recipe("Classic Burger", new FoodItem[]{
+                new FoodItem(buns), new FoodItem(beef),
+                new FoodItem(cheese), new FoodItem(tomato),
+                new FoodItem(salt), new FoodItem(pepper),
+                new FoodItem(eggs), new FoodItem(condiments)}));
 
         recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
                 new FoodItem(olive), new FoodItem(baguette),
