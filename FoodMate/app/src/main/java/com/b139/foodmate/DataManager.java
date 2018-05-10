@@ -267,6 +267,13 @@ public class DataManager {
 
         //Default recipes
         recipes.add(new Recipe("Classic Burger", new FoodItem[]{}));
-        recipes.add(new Recipe("Caesar Salad", new FoodItem[]{new FoodItem(olive), new FoodItem(baguette)}));
+
+        recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
+                new FoodItem(olive), new FoodItem(baguette),
+                new FoodItem(oliveoil), new FoodItem(garlic),
+                new FoodItem(lemon), new FoodItem(parmesan),
+                new FoodItem(anchovies), new FoodItem(eggs),
+                new FoodItem(pepper), new FoodItem(salt),
+                new FoodItem(lettuce)}));
     }
 }
