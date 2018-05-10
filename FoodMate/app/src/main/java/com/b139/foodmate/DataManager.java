@@ -14,16 +14,16 @@ import java.io.InputStreamReader;
 
 public class DataManager {
     //TODO: create default file names
-    private static ArrayList<Category> mainCategories;
+    private static ArrayList<Category> mainCategories = new ArrayList<Category>();
     final static String CATEGORIES = "categories.txt";
 
-    private static FoodItemList shoppingList;
+    private static FoodItemList shoppingList = new FoodItemList();
     final static String SHOPPING = "shopping.txt";
 
-    private static FoodItemList storage;
+    private static FoodItemList storage = new FoodItemList();
     final static String STORAGE = "storage.txt";
 
-    private static ArrayList<Recipe> recipes;
+    private static ArrayList<Recipe> recipes = new ArrayList<Recipe>();
     final static String RECIPES = "recipes.txt";
 
     public void saveData(String filename, String[] stringArray, Context ctx) {
@@ -70,16 +70,16 @@ public class DataManager {
     }
 
     //Generates dummy data for testing purposes
-    public void generateDummyData() {
+    public static void generateDummyData() {
         //Create main categories
         Category meat = new Category("Meat", QuantityUnit.GRAMS);
-        mainCategories.add(meat);
+        DataManager.mainCategories.add(meat);
         Category vegetable = new Category("Vegetable", QuantityUnit.PIECES);
-        mainCategories.add(vegetable);
+        DataManager.mainCategories.add(vegetable);
         Category dairy = new Category("Dairy", QuantityUnit.GRAMS);
-        mainCategories.add(dairy);
+        DataManager.mainCategories.add(dairy);
         Category bakery = new Category("Bakery", QuantityUnit.GRAMS);
-        mainCategories.add(bakery);
+        DataManager.mainCategories.add(bakery);
 
         //Create subcategories
         Category pork = new Category("Pork", QuantityUnit.GRAMS, meat);
@@ -100,21 +100,21 @@ public class DataManager {
         Category toast = new Category("Toast", QuantityUnit.PIECES, bread);
 
         //Create shopping list
-        shoppingList.addFoodItem(new FoodItem(minced));
-        shoppingList.addFoodItem(new FoodItem(5, tomato));
-        shoppingList.addFoodItem(new FoodItem(1000, milk));
+        DataManager.shoppingList.addFoodItem(new FoodItem(minced));
+        DataManager.shoppingList.addFoodItem(new FoodItem(5, tomato));
+        DataManager.shoppingList.addFoodItem(new FoodItem(1000, milk));
 
         //Create storage list
-        shoppingList.addFoodItem(new FoodItem(iceberg));
-        shoppingList.addFoodItem(new FoodItem(cucumber));
-        shoppingList.addFoodItem(new FoodItem(6, egg));
-        shoppingList.addFoodItem(new FoodItem(butter));
-        shoppingList.addFoodItem(new FoodItem(toast));
+        DataManager.storage.addFoodItem(new FoodItem(iceberg));
+        DataManager.storage.addFoodItem(new FoodItem(cucumber));
+        DataManager.storage.addFoodItem(new FoodItem(6, egg));
+        DataManager.storage.addFoodItem(new FoodItem(butter));
+        DataManager.storage.addFoodItem(new FoodItem(toast));
 
         //Create 3 recipes
-        recipes.add(new Recipe("Eggy bread", new FoodItem[]{new FoodItem(egg), new FoodItem(toast)}));
-        recipes.add(new Recipe("Hamburger with bacon shroud", new FoodItem[]{new FoodItem(minced), new FoodItem(bacon)}));
-        recipes.add(new Recipe("Basic salad", new FoodItem[]{new FoodItem(iceberg), new FoodItem(tomato), new FoodItem(cucumber)}));
+        DataManager.recipes.add(new Recipe("Eggy bread", new FoodItem[]{new FoodItem(egg), new FoodItem(toast)}));
+        DataManager.recipes.add(new Recipe("Hamburger with bacon shroud", new FoodItem[]{new FoodItem(minced), new FoodItem(bacon)}));
+        DataManager.recipes.add(new Recipe("Basic salad", new FoodItem[]{new FoodItem(iceberg), new FoodItem(tomato), new FoodItem(cucumber)}));
     }
 
     //TODO: create a initializer for figuring out what and when to load
