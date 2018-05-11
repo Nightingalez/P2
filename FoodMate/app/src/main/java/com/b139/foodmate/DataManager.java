@@ -446,9 +446,11 @@ public class DataManager {
         Category jam = new Category("Jam", QuantityUnit.PIECES, misc);
         Category honey = new Category("Honey", QuantityUnit.PIECES, misc);
         Category nori = new Category("Nori", QuantityUnit.PIECES, misc);
+        Category noodles = new Category("Noodles", QuantityUnit.PIECES, misc);
 
         Category salt = new Category("Salt", QuantityUnit.GRAMS, spices);
         Category pepper = new Category("Pepper", QuantityUnit.GRAMS, spices);
+        Category sugar = new Category("Sugar", QuantityUnit.GRAMS, spices);
         Category paprika = new Category("Paprika", QuantityUnit.GRAMS, spices);
         Category mint = new Category("Mint", QuantityUnit.GRAMS, spices);
         Category basil = new Category("Basil", QuantityUnit.GRAMS, spices);
@@ -466,40 +468,38 @@ public class DataManager {
         Category bbq = new Category("Barbecue Sauce", QuantityUnit.PIECES, condiments);
         Category soysauce = new Category("Soy Sauce", QuantityUnit.PIECES, condiments);
         Category fishsauce = new Category("Fish Sauce", QuantityUnit.PIECES, condiments);
-
+        Category broth = new Category("Broth", QuantityUnit.MILLILITRES, condiments);
 
 
         //Default recipes
         recipes.add(new Recipe("Classic Burger", new FoodItem[]{
-                new FoodItem(beef), new FoodItem(eggs),
-                new FoodItem(onion), new FoodItem(bread),
-                new FoodItem(garlic), new FoodItem(salt),
-                new FoodItem(pepper), new FoodItem(buns),
-                new FoodItem(lettuce), new FoodItem(tomato),
-                new FoodItem(ketchup), new FoodItem(mayonaise)}));
+                new FoodItem(beef), new FoodItem(eggs), new FoodItem(onion),
+                new FoodItem(bread), new FoodItem(garlic), new FoodItem(salt),
+                new FoodItem(pepper), new FoodItem(buns), new FoodItem(lettuce),
+                new FoodItem(tomato), new FoodItem(ketchup), new FoodItem(mayonaise)}));
 
         recipes.add(new Recipe("Caesar Salad", new FoodItem[]{
-                new FoodItem(olive), new FoodItem(baguette),
-                new FoodItem(oliveoil), new FoodItem(garlic),
-                new FoodItem(lemon), new FoodItem(parmesan),
-                new FoodItem(anchovies), new FoodItem(eggs),
-                new FoodItem(pepper), new FoodItem(salt),
-                new FoodItem(lettuce)}));
+                new FoodItem(olive), new FoodItem(baguette), new FoodItem(oliveoil),
+                new FoodItem(garlic), new FoodItem(lemon), new FoodItem(parmesan),
+                new FoodItem(anchovies), new FoodItem(eggs), new FoodItem(pepper),
+                new FoodItem(salt), new FoodItem(lettuce)}));
 
         recipes.add(new Recipe("Pizza", new FoodItem[]{
-                new FoodItem(dough), new FoodItem(cheese),
-                new FoodItem(tomatoSauce), new FoodItem(pepperoni),
-                new FoodItem(oregano)}));
+                new FoodItem(dough), new FoodItem(cheese), new FoodItem(tomatoSauce),
+                new FoodItem(pepperoni), new FoodItem(oregano)}));
 
         recipes.add(new Recipe("Maki Rolls", new FoodItem[]{
-                new FoodItem(cucumber), new FoodItem(rice),
-                new FoodItem(nori), new FoodItem(tuna),
-                new FoodItem(avocado)}));
+                new FoodItem(cucumber), new FoodItem(rice), new FoodItem(nori),
+                new FoodItem(tuna), new FoodItem(avocado)}));
 
         recipes.add(new Recipe("Lasagna", new FoodItem[]{
-                new FoodItem(olive), new FoodItem(beef),
-                new FoodItem(onion), new FoodItem(pepper),
-                new FoodItem(garlic), new FoodItem(tomatoSauce),
+                new FoodItem(olive), new FoodItem(beef), new FoodItem(onion),
+                new FoodItem(pepper), new FoodItem(garlic), new FoodItem(tomatoSauce),
                 new FoodItem(tomato)}));
+
+        recipes.add(new Recipe("Ramen", new FoodItem[]{
+                new FoodItem(broth), new FoodItem(garlic), new FoodItem(soysauce),
+                new FoodItem(sugar), new FoodItem(onion), new FoodItem(noodles),
+                new FoodItem(eggs)}));
     }
 }
