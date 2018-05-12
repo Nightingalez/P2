@@ -447,6 +447,7 @@ public class DataManager {
         Category honey = new Category("Honey", QuantityUnit.PIECES, misc);
         Category nori = new Category("Nori", QuantityUnit.PIECES, misc);
         Category noodles = new Category("Noodles", QuantityUnit.PIECES, misc);
+        Category bakingApples = new Category("Baking Apples", QuantityUnit.GRAMS, misc);
 
         Category salt = new Category("Salt", QuantityUnit.GRAMS, spices);
         Category pepper = new Category("Pepper", QuantityUnit.GRAMS, spices);
@@ -501,5 +502,9 @@ public class DataManager {
                 new FoodItem(broth), new FoodItem(garlic), new FoodItem(soysauce),
                 new FoodItem(sugar), new FoodItem(onion), new FoodItem(noodles),
                 new FoodItem(eggs)}));
+
+        recipes.add(new Recipe("Apple Pie", new FoodItem[]{
+                new FoodItem(dough), new FoodItem(lemon), new FoodItem(bakingApples),
+                new FoodItem(sugar), new FoodItem(butter), new FoodItem(eggs)}));
     }
 }
