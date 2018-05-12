@@ -159,7 +159,14 @@ public class DataManager {
         return true;
     }
 
-    //TODO: create a shutdown saver
+    //saves all data
+    public static void saveAll(Context ctx)
+    {
+        saveCategories(ctx);
+        saveShopping(ctx);
+        saveStorage(ctx);
+        saveRecipes(ctx);
+    }
 
     //saves category data
     public static void saveCategories(Context ctx) {
@@ -380,7 +387,7 @@ public class DataManager {
     }
 
 
-    //takes a string array of information from a recipe save file, and rebuilds them TODO
+    //takes a string array of information from a recipe save file, and rebuilds them
     public static void recipesFromStrings(String[] stringData) {
         //go through the data to "snip out" data for a single recipe
         int openTags = 1;
