@@ -1,7 +1,6 @@
 package com.b139.foodmate;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -12,9 +11,10 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static java.util.Arrays.copyOfRange;
 
 
 public class DataManager {
@@ -32,7 +32,7 @@ public class DataManager {
     final static String RECIPES = "recipes.txt";
     final static String DEFAULT_RECIPES = "default_recipes.txt";
 
-    public void saveData(String filename, String[] stringData, Context ctx) {
+    public static void saveData(String filename, String[] stringData, Context ctx) {
         OutputStreamWriter outputStreamWriter;
 
         try {
@@ -47,7 +47,7 @@ public class DataManager {
         }
     }
 
-    public String[] loadData(String filename, Context ctx) {
+    public static String[] loadData(String filename, Context ctx) {
         ArrayList<String> loaded = new ArrayList<>();
 
         try {
@@ -127,29 +127,31 @@ public class DataManager {
     public void dataInitializer(Context ctx) {
         if (checkFileExists(CATEGORIES, ctx)) {
             //load and restore category data
-            categoryLoader(loadData(CATEGORIES, ctx));
+            categoriesFromStrings(loadData(CATEGORIES, ctx));
         } else {
             //load default category data
-            categoryLoader(loadData(DEFAULT_CATEGORIES, ctx));
+            categoriesFromStrings(loadData(DEFAULT_CATEGORIES, ctx));
         }
 
         if (checkFileExists(SHOPPING, ctx)) {
-            //TODO: load and restore shopping list data
+            shoppingList = foodItemListFromStrings(loadData(SHOPPING, ctx));
         }
 
         if (checkFileExists(STORAGE, ctx)) {
-            //TODO: load and restore storage list data
+            storage = foodItemListFromStrings(loadData(STORAGE, ctx));
         }
 
         if (checkFileExists(RECIPES, ctx)) {
-            //TODO: load and restore recipes
+            //load and restore recipes
+            recipeFromStrings(loadData(RECIPES, ctx));
         } else {
-            //TODO: load default recipes
+            //load default recipes
+            recipeFromStrings(loadData(DEFAULT_RECIPES, ctx));
         }
     }
 
     //Checks if a file exists
-    public boolean checkFileExists(String filename, Context ctx) {
+    public static boolean checkFileExists(String filename, Context ctx) {
         File file = ctx.getFileStreamPath(filename);
         if (file == null || !file.exists()) {
             return false;
@@ -159,10 +161,30 @@ public class DataManager {
 
     //TODO: create a shutdown saver
 
+    //saves category data
+    public static void saveCategories(Context ctx) {
+        saveData(CATEGORIES, allCategoriesToStrings(), ctx);
+    }
+
+    //saves shopping list data
+    public static void saveShopping(Context ctx) {
+        saveData(SHOPPING, foodItemListToStrings(shoppingList), ctx);
+    }
+
+    //saves storage data
+    public static void saveStorage(Context ctx) {
+        saveData(STORAGE, foodItemListToStrings(storage), ctx);
+    }
+
+    //saves recipe data
+    public static void saveRecipes(Context ctx) {
+        saveData(RECIPES, allRecipesToStrings(), ctx);
+    }
+
     //takes a string array of information from a category save file, and rebuilds them
-    public static void categoryLoader(String[] stringData) {
+    public static void categoriesFromStrings(String[] stringData) {
         int i = 0;
-        ArrayList<Category> temp = new ArrayList<Category>();
+        ArrayList<Category> tempCat = new ArrayList<Category>();
 
         while (i < stringData.length) {
             if (stringData[i] == DataTag.CATEGORY) {
@@ -179,11 +201,11 @@ public class DataManager {
                     Category loaded = new Category(name, unit);
                     loaded.setID(id);
                     mainCategories.add(loaded);
-                    temp.add(loaded);
+                    tempCat.add(loaded);
 
                 } else { // else, find its parent, and add it under it
                     Category parent = null;
-                    for (Category c : temp) {
+                    for (Category c : tempCat) {
                         if (c.getID() == id) {
                             parent = c;
                         }
@@ -193,7 +215,7 @@ public class DataManager {
                         Category loaded = new Category(name, unit, parent);
                         loaded.setID(id);
                         parent.addSubcategory(loaded);
-                        temp.add(loaded);
+                        tempCat.add(loaded);
                     }
                 }
             } else if (stringData[i] == DataTag.END) { //if an additional end tag is hit, stop loading
@@ -215,9 +237,8 @@ public class DataManager {
         return result;
     }
 
-
     //creates a category string array, which contains all categories in the system
-    public static String[] categoryStringGenerator() {
+    public static String[] allCategoriesToStrings() {
         //first create a temporary list of all categories
         ArrayList<Category> tempCat = new ArrayList<Category>();
         for (Category c : mainCategories) {
@@ -229,7 +250,7 @@ public class DataManager {
 
         //add category strings to list
         for (Category c : tempCat) {
-            Collections.addAll(tempString, categoryStrings(c));
+            Collections.addAll(tempString, categoryToStrings(c));
         }
 
         //add final end tag
@@ -243,7 +264,7 @@ public class DataManager {
     }
 
     //creates a string array from a category
-    public static String[] categoryStrings(Category category) {
+    public static String[] categoryToStrings(Category category) {
         String[] result = new String[]{
                 DataTag.CATEGORY,
                 String.valueOf(category.getID()),
@@ -254,8 +275,8 @@ public class DataManager {
         return result;
     }
 
-    // recreate food items from string data
-    public static FoodItem foodItemLoader(String[] stringData) {
+    // recreate a food item from string data
+    public static FoodItem foodItemFromStrings(String[] stringData) {
         int amount = Integer.parseInt(stringData[1]);
         int catId = Integer.parseInt(stringData[2]);
 
@@ -284,8 +305,40 @@ public class DataManager {
         return null;
     }
 
+    // recreate food items from string data
+    public static FoodItem[] foodItemsFromStrings(String[] stringData) {
+        // create a temporary array list
+        ArrayList<FoodItem> tempList = new ArrayList<FoodItem>();
+
+        //go through the string array
+        stringScanner:
+        for (int i = 0; i < stringData.length; i++) {
+            switch (stringData[i]) {
+                case DataTag.ITEM: //pass on this and the next 3 lines to the food item builder as a string array
+                    String[] foodItemData = copyOfRange(stringData, i, i + 3);
+                    FoodItem item = foodItemFromStrings(foodItemData);
+                    tempList.add(item);
+
+                    //move the loop 3 lines ahead
+                    i += 3;
+                    break;
+
+                case DataTag.END: //if an additional end tag is hit, stop the loop
+                    break stringScanner;
+
+                default:
+                    break;
+            }
+        }
+
+        //convert and return food item array
+        FoodItem[] result = new FoodItem[tempList.size()];
+        tempList.toArray(result);
+        return result;
+    }
+
     //creates a string array from a food item
-    public static String[] foodItemStrings(FoodItem item) {
+    public static String[] foodItemToStrings(FoodItem item) {
         String[] result = new String[]{
                 DataTag.ITEM,
                 String.valueOf(item.getAmount()),
@@ -295,23 +348,150 @@ public class DataManager {
         return result;
     }
 
-    //TODO: create food item list loader
+    //creates a food item list from string data
+    public static FoodItemList foodItemListFromStrings(String[] stringData) {
+        //first pass the data to foodItemsFromStrings to get an array of food items
+        FoodItem[] tempItems = foodItemsFromStrings(stringData);
 
-    //TODO: create storage & shopping list loader
+        //create and return a food item list from the array
+        FoodItemList result = new FoodItemList(tempItems);
+        return result;
+    }
 
-    //TODO: create food item list stringarray generator
 
-    //TODO: create storage & shopping list saver
+    //creates a string array from a food item list
+    public static String[] foodItemListToStrings(FoodItemList list) {
+        //first create a temporary array list
+        ArrayList<String> tempList = new ArrayList<String>();
+        tempList.add(DataTag.LIST);
 
-    //TODO: create recipe loader
+        //add strings for each food item in the list
+        for (FoodItem i : list.getContents()) {
+            Collections.addAll(tempList, foodItemToStrings(i));
+        }
 
-    //TODO: create recipe stringarray generator
+        //add final end tag
+        tempList.add(DataTag.END);
 
-    //TODO: create reset
+        //convert and return string array
+        String[] result = new String[tempList.size()];
+        tempList.toArray(result);
+        return result;
+    }
 
-    //TODO: create a method that generates/restores default save files
 
-    public void defaultDataGenerator(Context ctx) {
+    //takes a string array of information from a recipe save file, and rebuilds them TODO
+    public static void recipesFromStrings(String[] stringData) {
+        //go through the data to "snip out" data for a single recipe
+        int openTags = 1;
+        int recipeStartLine = 0;
+        dataScanner:
+        for (int i = 0; i < stringData.length; i++) {
+            switch (stringData[i]) {
+                case DataTag.RECIPE:
+                    recipeStartLine = i;
+                    openTags++;
+                    break;
+
+                case DataTag.LIST:
+                case DataTag.ITEM:
+                    openTags++;
+                    break;
+
+                case DataTag.END:
+                    openTags--;
+
+                    if (openTags == 1) {//if the end of a segment of recipe data is reach, make a copy of the read info, and build a recipe
+                        String[] recipeData = copyOfRange(stringData, recipeStartLine, i);
+                        recipes.add(recipeFromStrings(recipeData));
+
+                    } else if (openTags == 0) {//if the end of the save file is reached, stop the loop
+                        break dataScanner;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    //creates a recipe from string data
+    public static Recipe recipeFromStrings(String[] stringData) {
+        //First, grab the name of the recipe
+        String name = stringData[1];
+
+        //pass the remaining data to foodItemsFromStrings to get an array of food items
+        FoodItem[] tempItems = foodItemsFromStrings(stringData);
+
+        //create and return a recipe
+        Recipe result = new Recipe(name, tempItems);
+        return result;
+    }
+
+    //creates a string array from a recipe
+    public static String[] recipeToStrings(Recipe recipe) {
+        //first create a temporary array list
+        ArrayList<String> tempRecipe = new ArrayList<String>();
+
+        //add the first pieces of info
+        tempRecipe.add(DataTag.RECIPE);
+        tempRecipe.add(recipe.getName());
+
+        //add its contents
+        for (FoodItem f : recipe.getContents()) {
+            Collections.addAll(tempRecipe, foodItemToStrings(f));
+        }
+
+        //add end tag
+        tempRecipe.add(DataTag.END);
+
+        //convert and return string array
+        String[] result = new String[tempRecipe.size()];
+        tempRecipe.toArray(result);
+        return result;
+    }
+
+    //creates a recipe string array, which contains all recipes in the system
+    public static String[] allRecipesToStrings() {
+        //first create a temporary array list
+        ArrayList<String> tempString = new ArrayList<String>();
+
+        //add each recipe string array
+        for (Recipe r : recipes) {
+            Collections.addAll(tempString, recipeToStrings(r));
+        }
+
+        //add final end tag
+        tempString.add(DataTag.END);
+
+        //convert and return string array
+        String[] result = new String[tempString.size()];
+        tempString.toArray(result);
+        return result;
+    }
+
+
+    //deletes all current data
+    public void clearCurrentData() {
+        mainCategories = new ArrayList<Category>();
+        shoppingList = new FoodItemList();
+        storage = new FoodItemList();
+        recipes = new ArrayList<Recipe>();
+    }
+
+    //restores the system to default values
+    public void restoreDefault(Context ctx) {
+        clearCurrentData();
+        defaultDataGenerator();
+
+        //for safeties sake, also overwrite the default data files
+        saveData(DEFAULT_CATEGORIES, allCategoriesToStrings(), ctx);
+        saveData(DEFAULT_RECIPES, allRecipesToStrings(), ctx);
+    }
+
+    //inserts default data into the system. NOTE: Does not clear or delete anything! Make sure to do that before calling this to avoid duplicate data
+    public void defaultDataGenerator() {
         //Default main categories
         Category meat = new Category("Meat", QuantityUnit.GRAMS);
         mainCategories.add(meat);
@@ -404,7 +584,7 @@ public class DataManager {
         Category bologna = new Category("Bologna", QuantityUnit.GRAMS, coldcuts);
         Category pepperoni = new Category("Pepperoni", QuantityUnit.GRAMS, coldcuts);
         Category roastbeef = new Category("Roast Beef", QuantityUnit.GRAMS, coldcuts);
-        
+
         Category garlic = new Category("Garlic", QuantityUnit.PIECES, vegetable);
         Category lettuce = new Category("Lettuce", QuantityUnit.GRAMS, vegetable);
         Category olive = new Category("Olives", QuantityUnit.PIECES, vegetable);
@@ -466,7 +646,6 @@ public class DataManager {
         Category bbq = new Category("Barbecue Sauce", QuantityUnit.PIECES, condiments);
         Category soysauce = new Category("Soy Sauce", QuantityUnit.PIECES, condiments);
         Category fishsauce = new Category("Fish Sauce", QuantityUnit.PIECES, condiments);
-
 
 
         //Default recipes

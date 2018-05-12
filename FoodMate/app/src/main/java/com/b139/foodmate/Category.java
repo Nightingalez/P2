@@ -91,9 +91,9 @@ public class Category
 		return parentCategory;
 	}
 
-	public void setParentCategory(Category parentCatagory)
+	public void setParentCategory(Category parentCategory)
 	{
-		this.parentCategory = parentCatagory;
+		this.parentCategory = parentCategory;
 	}
 	
 	//Finds the uppermost main category that this category belongs under. Returns itself if it is a main category
