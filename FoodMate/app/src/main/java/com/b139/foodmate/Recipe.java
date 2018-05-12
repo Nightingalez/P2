@@ -37,6 +37,19 @@ public class Recipe extends FoodItemList {
         this.name = name;
     }
 
+    //Creates a recipe from an existing list TODO: Add to class diagram
+    public Recipe(FoodItemList list) {
+
+        this(list.getContents());
+    }
+
+    //Creates a recipe from an existing list with a name and food items TODO: Add to class diagram
+    public Recipe(String name, FoodItemList list) {
+
+        this(list);
+        this.name = name;
+    }
+
     //Returns the name of the recipe
     public String getName() {
         return name;

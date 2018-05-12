@@ -87,7 +87,7 @@ public class FoodItemList {
                 break;
 
             case CATEGORY:
-                contents.sort(FoodItem.MainCatagoryNameComparator);
+                contents.sort(FoodItem.MainCategoryNameComparator);
                 break;
         }
     }

@@ -95,7 +95,7 @@ public class FoodItem
 		highestKnownID += 1;
 	}
 
-	// Returns the category's ID
+	// Returns the food items ID
 	public int getID()
 	{
 		return id;
@@ -116,7 +116,7 @@ public class FoodItem
 	};
 
 	// Comparator for main category name
-	public static Comparator<FoodItem> MainCatagoryNameComparator = new Comparator<FoodItem>()
+	public static Comparator<FoodItem> MainCategoryNameComparator = new Comparator<FoodItem>()
 	{
 		public int compare(FoodItem f1, FoodItem f2)
 		{
