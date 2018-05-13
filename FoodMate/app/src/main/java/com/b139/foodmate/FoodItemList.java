@@ -83,7 +83,7 @@ public class FoodItemList {
     public void sortList(SortingMethod sortingType) {
         switch (sortingType) {
             case ALPHABETICAL:
-                contents.sort(FoodItem.FoodNameComparator); //TODO: bring up API issue
+                contents.sort(FoodItem.FoodNameComparator);
                 break;
 
             case CATEGORY:
