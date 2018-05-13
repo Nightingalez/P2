@@ -13,4 +13,5 @@
     <color name="colorBeverages">#E4E4E4</color>
     <color name="colorGrains">#FFFF99</color>
     <color name="AddGreen">#009b00</color>
+    <color name="colorDarkenedBackground">#14000000</color>
 </resources>

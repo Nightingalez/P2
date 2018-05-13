@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +8,7 @@
     android:layout_height="match_parent">
 
     <ListView
+        android:id="@+id/ListView_RecipeIngredients"
         android:layout_width="185dp"
         android:layout_height="317dp"
         android:layout_alignParentEnd="true"
@@ -16,7 +18,7 @@
         android:layout_marginRight="15dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Button_AddToShopping"
         android:layout_width="355dp"
         android:layout_height="77dp"
         android:layout_alignParentBottom="true"
@@ -25,4 +27,65 @@
         android:textColor="#FFFFFF"
         android:text="@string/add_ingerdients_to_shopping_list" />
 
-</android.widget.RelativeLayout>
+</android.widget.RelativeLayout>-->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:id="@+id/SearchView_RecipeFinder"
+        android:layout_width="368dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/ListView_RecipeIngredients"
+        android:layout_width="185dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorDarkenedBackground"
+        app:layout_constraintBottom_toTopOf="@+id/Button_AddToShopping"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView_RecipeSubTitle" />
+
+    <Button
+        android:id="@+id/Button_AddToShopping"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/add_ingerdients_to_shopping_list"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/TextView_RecipeSubTitle"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/colorPrimary"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="@string/ingredients_title"
+        android:textColor="?attr/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ListView_RecipeIngredients"
+        app:layout_constraintStart_toStartOf="@+id/ListView_RecipeIngredients"
+        app:layout_constraintTop_toBottomOf="@+id/SearchView_RecipeFinder" />
+
+</android.support.constraint.ConstraintLayout>
