@@ -18,17 +18,17 @@ import static java.util.Arrays.copyOfRange;
 
 
 public class DataManager {
-    private static ArrayList<Category> mainCategories = new ArrayList<Category>();
+    public static ArrayList<Category> mainCategories = new ArrayList<Category>();
     final static String CATEGORIES = "categories.txt";
     final static String DEFAULT_CATEGORIES = "default_categories.txt";
 
-    private static FoodItemList shoppingList = new FoodItemList();
+    public static FoodItemList shoppingList = new FoodItemList();
     final static String SHOPPING = "shopping.txt";
 
-    private static FoodItemList storage = new FoodItemList();
+    public static FoodItemList storage = new FoodItemList();
     final static String STORAGE = "storage.txt";
 
-    private static ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+    public static ArrayList<Recipe> recipes = new ArrayList<Recipe>();
     final static String RECIPES = "recipes.txt";
     final static String DEFAULT_RECIPES = "default_recipes.txt";
 
