@@ -647,6 +647,8 @@ public class DataManager {
         Category rosemary = new Category("Rosemary", QuantityUnit.GRAMS, spices);
         Category oregano = new Category("Oregano", QuantityUnit.GRAMS, spices);
         Category cumin = new Category("Cumin", QuantityUnit.GRAMS, spices);
+        Category curryPowder = new Category("Curry Powder", QuantityUnit.GRAMS, spices);
+        Category ginger = new Category("Ginger", QuantityUnit.GRAMS, spices);
 
         Category ketchup = new Category("Ketchup", QuantityUnit.PIECES, condiments);
         Category mayonaise = new Category("Mayonaise", QuantityUnit.PIECES, condiments);
@@ -692,5 +694,10 @@ public class DataManager {
         recipes.add(new Recipe("Apple Pie", new FoodItem[]{
                 new FoodItem(dough), new FoodItem(lemon), new FoodItem(bakingApples),
                 new FoodItem(sugar), new FoodItem(butter), new FoodItem(eggs)}));
+
+        recipes.add(new Recipe("Chicken Curry", new FoodItem[]{
+            new FoodItem(chicken), new FoodItem(pepper), new FoodItem(vegetableoil),
+            new FoodItem(curryPowder), new FoodItem(garlic), new FoodItem(onion),
+            new FoodItem(ginger), new FoodItem(yogurt)}));
     }
 }
