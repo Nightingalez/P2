@@ -4,6 +4,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@+id/label"
-        android:textSize="20px"
+        android:textSize="15sp"
         android:textColor="@color/colorPrimaryDark">
     </TextView>
