@@ -41,9 +41,12 @@ public class FoodItem
 	}
 
 	// Returns the name of the food item, derived from its category
-	public String getName()
-	{
+	public String getName() {
 		return category.getName();
+	}
+
+	public String toString(){
+		return getName();
 	}
 	
 	// Returns this food items category
