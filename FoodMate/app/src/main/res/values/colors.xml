@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#ffffff</color>
 
-    <color name="colorMeat">#FC7676</color>
+    <color name="colorMeat">#fc7676</color>
     <color name="colorDairy">#CCFFFF</color>
     <color name="colorVegetable">#CCFF66</color>
     <color name="colorFruit">#D88BFF</color>
@@ -12,4 +12,6 @@
     <color name="colorBakery">#F6C96F</color>
     <color name="colorBeverages">#E4E4E4</color>
     <color name="colorGrains">#FFFF99</color>
+    <color name="AddGreen">#009b00</color>
+    <color name="colorDarkenedBackground">#14000000</color>
 </resources>
