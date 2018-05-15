@@ -20,6 +20,7 @@ public class Tab2ShoppingList extends Fragment {
 
         shoppingListView.setAdapter(shoppingArrayAdapter);
 
+
         return rootView;
     }
 }

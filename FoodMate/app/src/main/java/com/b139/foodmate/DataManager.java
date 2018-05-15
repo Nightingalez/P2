@@ -32,6 +32,16 @@ public class DataManager {
     final static String RECIPES = "recipes.txt";
     final static String DEFAULT_RECIPES = "default_recipes.txt";
 
+    public static Recipe shownRecipe;
+
+    //Checks if there's a food item in storage of the given category
+    public static boolean isInStorage(Category category)
+    {
+        return storage.categoryIsInList(category);
+    }
+
+    //SAVING AND LOADING
+
     public static void saveData(String filename, String[] stringData, Context ctx) {
         OutputStreamWriter outputStreamWriter;
 

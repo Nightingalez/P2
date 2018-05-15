@@ -8,26 +8,28 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Tab1Recipe extends Fragment {
+
+    private ListView ingredientListView;
+    private RecipeIngredientsAdapter ingredientsAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab1recipe, container, false);
 
+
         /*ListView recipeListView = (ListView) rootView.findViewById(R.id.SearchView_RecipeFinder);
 
-        ArrayAdapter recipeArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.recipe_view, DataManager.recipes);
+        ArrayAdapter recipeArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.recipe_ingredient_listitem, DataManager.recipes);
 
         recipeListView.setAdapter(recipeArrayAdapter);*/
 
-        ListView ingredientListView = (ListView) rootView.findViewById(R.id.ListView_RecipeIngredients);
+        ingredientListView = (ListView) rootView.findViewById(R.id.ListView_RecipeIngredients);
 
-        ArrayAdapter ingredientArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.recipe_view, DataManager.recipes.get(0).getContents());
+        ingredientsAdapter = new RecipeIngredientsAdapter(getActivity(), DataManager.recipes.get(0).getContents());
 
-        ingredientListView.setAdapter(ingredientArrayAdapter);
+        ingredientListView.setAdapter(ingredientsAdapter);
 
         return rootView;
     }

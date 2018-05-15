@@ -45,10 +45,17 @@ public class FoodItem
 		return category.getName();
 	}
 
+	//TODO: determine if needed after implementing custom adapers
 	public String toString(){
 		return getName();
 	}
-	
+
+	//Returns the quantity unit as a string abbrevation
+	public String getUnitAbbreviation()
+	{
+		return category.getUnitAbbreviation();
+	}
+
 	// Returns this food items category
 	public Category getCategory()
 	{
