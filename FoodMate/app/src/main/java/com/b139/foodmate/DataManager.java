@@ -130,7 +130,7 @@ public class DataManager {
         //Create 3 recipes
         DataManager.recipes.add(new Recipe("Eggy bread", new FoodItem[]{new FoodItem(egg), new FoodItem(toast)}));
         DataManager.recipes.add(new Recipe("Hamburger with bacon shroud", new FoodItem[]{new FoodItem(minced), new FoodItem(bacon)}));
-        DataManager.recipes.add(new Recipe("Basic salad", new FoodItem[]{new FoodItem(iceberg), new FoodItem(tomato), new FoodItem(cucumber)}));
+        DataManager.recipes.add(new Recipe("Basic salad", new FoodItem[]{new FoodItem(1, iceberg), new FoodItem(tomato), new FoodItem(cucumber)}));
     }
 
     //Initializer for figuring out what and when to load at startup

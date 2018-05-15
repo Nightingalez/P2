@@ -59,7 +59,7 @@ public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
 
         // Populate the data into the template view using the data object
         Boolean isInStorage = DataManager.isInStorage(foodItem.getCategory());
-        holder.circle.setColor(getContext().getColor(R.color.InStorage));
+        holder.circle.setColor(getContext().getColor(isInStorage ? R.color.InStorage : R.color.NotInStorage));
 
         holder.ingredientName.setText(foodItem.getName());
 
