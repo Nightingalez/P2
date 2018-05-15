@@ -13,12 +13,12 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/circle"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/ingredientName"
+        app:layout_constraintBottom_toBottomOf="@+id/listIngredientName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ingredientName" />
+        app:layout_constraintTop_toTopOf="@+id/listIngredientName" />
 
     <TextView
-        android:id="@+id/ingredientName"
+        android:id="@+id/listIngredientName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -43,7 +43,7 @@
         android:textAlignment="viewEnd"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ingredientName"
+        app:layout_constraintBottom_toBottomOf="@+id/listIngredientName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ingredientName"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/listIngredientName"></TextView>
 </android.support.constraint.ConstraintLayout>

@@ -43,7 +43,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorDarkenedBackground"
-        android:queryHint="Find recipe"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/search_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,6 +91,14 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/ListView_RecipeIngredients"
         app:layout_constraintStart_toStartOf="@+id/ListView_RecipeIngredients"
+        app:layout_constraintTop_toBottomOf="@+id/SearchView_RecipeFinder" />
+
+    <ListView
+        android:id="@+id/ListView_RecipeSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/SearchView_RecipeFinder"
+        app:layout_constraintStart_toStartOf="@+id/SearchView_RecipeFinder"
         app:layout_constraintTop_toBottomOf="@+id/SearchView_RecipeFinder" />
 
 </android.support.constraint.ConstraintLayout>

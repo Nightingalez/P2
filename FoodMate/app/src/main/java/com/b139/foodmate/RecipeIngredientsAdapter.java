@@ -12,13 +12,13 @@ import java.util.ArrayList;
 
 public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
 
-    private ArrayList<FoodItem> dataSet;
-    Context mContext;
+    private ArrayList<FoodItem> ingredients;
+    Context context;
 
     public RecipeIngredientsAdapter(Context context, ArrayList<FoodItem> foodItems) {
         super(context, R.layout.recipe_ingredient_listitem, foodItems);
-        this.dataSet = foodItems;
-        this.mContext = context;
+        this.ingredients = foodItems;
+        this.context = context;
     }
 
 
@@ -29,14 +29,14 @@ public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
         FoodItem foodItem = getItem(position);
 
         // Declare a holder
-        ViewHolder holder = null;
+        IngredientViewHolder holder = null;
 
         final View result;
 
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             //Create a viewHolder
-            holder = new ViewHolder();
+            holder = new IngredientViewHolder();
 
             //Inflate
             LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -44,7 +44,7 @@ public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
 
             //Populate holder
             holder.circle = (GradientDrawable) convertView.findViewById(R.id.inStorageDot).getBackground();
-            holder.ingredientName = (TextView) convertView.findViewById(R.id.ingredientName);
+            holder.IngredientName = (TextView) convertView.findViewById(R.id.listIngredientName);
             holder.quantity = (TextView) convertView.findViewById(R.id.quantity);
 
             result = convertView;
@@ -52,7 +52,7 @@ public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
             convertView.setTag(holder);
         } else {
             //If already inflated, retrieve the existing holder
-            holder = (ViewHolder) convertView.getTag();
+            holder = (IngredientViewHolder) convertView.getTag();
             result = convertView;
         }
 
@@ -61,7 +61,7 @@ public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
         Boolean isInStorage = DataManager.isInStorage(foodItem.getCategory());
         holder.circle.setColor(getContext().getColor(isInStorage ? R.color.InStorage : R.color.NotInStorage));
 
-        holder.ingredientName.setText(foodItem.getName());
+        holder.IngredientName.setText(foodItem.getName());
 
         if (foodItem.getAmount() != 0) {
             String toDisplay = String.valueOf(foodItem.getAmount()) + " " + foodItem.getUnitAbbreviation();
@@ -76,9 +76,9 @@ public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
     }
 
 
-    static class ViewHolder {
+    static class IngredientViewHolder {
         GradientDrawable circle;
-        private TextView ingredientName;
+        private TextView IngredientName;
         private TextView quantity;
     }
 }
