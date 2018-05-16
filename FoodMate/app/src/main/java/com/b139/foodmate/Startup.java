@@ -5,6 +5,6 @@ public class Startup extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        DataManager.generateDummyData();
+        DataManager.demoData2();
     }
 }

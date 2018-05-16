@@ -25,7 +25,6 @@ public class Tab1Recipe extends Fragment {
     private ListView recipesListView;
     private RecipeAdapter recipeAdapter;
 
-    private Recipe ActiveRecipe = DataManager.recipes.get(2);
     SearchView recipeSearchView;
 
     @Override
@@ -46,7 +45,8 @@ public class Tab1Recipe extends Fragment {
 
 
         //Showing ingredients
-        ingredientsAdapter = new RecipeIngredientsAdapter(getActivity(), ActiveRecipe.getContents());
+        ingredientsAdapter = new RecipeIngredientsAdapter(getActivity(), new ArrayList<FoodItem>(DataManager.ActiveRecipe.getContents()));
+        //Note: we create a new arrayList from food items, as the adapter needs to maintain connection to a list. It will internally remember this copy.
         ingredientListView.setAdapter(ingredientsAdapter);
 
         //Recipe search
@@ -60,7 +60,8 @@ public class Tab1Recipe extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
 
-                ActiveRecipe = DataManager.filteredRecipes.get(position);
+                DataManager.ActiveRecipe = DataManager.filteredRecipes.get(position);
+                ingredientsAdapter.updateList();
             }
         });
 

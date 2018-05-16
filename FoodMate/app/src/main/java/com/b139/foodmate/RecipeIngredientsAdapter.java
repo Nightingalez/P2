@@ -2,6 +2,7 @@ package com.b139.foodmate;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,12 @@ public class RecipeIngredientsAdapter extends ArrayAdapter<FoodItem> {
         return convertView;
     }
 
+    public void updateList()
+    {
+        ingredients.clear();
+        ingredients.addAll(DataManager.ActiveRecipe.getContents());
+        this.notifyDataSetChanged();
+    }
 
     static class IngredientViewHolder {
         GradientDrawable circle;

@@ -49,9 +49,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/TextView_RecipeSubTitle"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/colorPrimary"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="@string/ingredients_title"
+        android:textColor="?attr/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ListView_RecipeIngredients"
+        app:layout_constraintStart_toStartOf="@+id/ListView_RecipeIngredients"
+        app:layout_constraintTop_toBottomOf="@+id/ListView_RecipeSearch" />
+
     <ListView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:clickable="true"
         android:id="@+id/ListView_RecipeIngredients"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -59,10 +73,19 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/colorDarkenedBackground"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/Button_AddToShopping"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextView_RecipeSubTitle" />
+
+    <ListView
+        android:id="@+id/ListView_RecipeSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/SearchView_RecipeFinder"
+        app:layout_constraintStart_toStartOf="@+id/SearchView_RecipeFinder"
+        app:layout_constraintTop_toBottomOf="@+id/SearchView_RecipeFinder" />
 
     <Button
         android:id="@+id/Button_AddToShopping"
@@ -78,29 +101,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
-    <TextView
-        android:id="@+id/TextView_RecipeSubTitle"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="8dp"
-        android:background="?attr/colorPrimary"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:text="@string/ingredients_title"
-        android:textColor="?attr/colorAccent"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/ListView_RecipeIngredients"
-        app:layout_constraintStart_toStartOf="@+id/ListView_RecipeIngredients"
-        app:layout_constraintTop_toBottomOf="@+id/SearchView_RecipeFinder" />
-
-    <ListView
-        android:id="@+id/ListView_RecipeSearch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/SearchView_RecipeFinder"
-        app:layout_constraintStart_toStartOf="@+id/SearchView_RecipeFinder"
-        app:layout_constraintTop_toBottomOf="@+id/SearchView_RecipeFinder" />
 
 </android.support.constraint.ConstraintLayout>

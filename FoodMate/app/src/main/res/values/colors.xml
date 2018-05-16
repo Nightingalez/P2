@@ -18,4 +18,5 @@
 
     <color name="InStorage">#00FF00</color>
     <color name="NotInStorage">#FF0000</color>
+    <color name="LightGray">#e0e0e0</color>
 </resources>

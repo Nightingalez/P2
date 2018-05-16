@@ -15,6 +15,7 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
     public RecipeAdapter(Context context, ArrayList<Recipe> recipes) {
         super(context, R.layout.recipe_listitem, recipes);
         DataManager.filteredRecipes = recipes;
+        DataManager.filteredRecipes.clear(); //TODO: Remove this line in the future when making a proper function for hiding the list
         this.context = context;
     }
 
@@ -62,7 +63,7 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
         DataManager.filteredRecipes.clear();
 
         if (text.length() == 0) {
-            DataManager.filteredRecipes.addAll(DataManager.recipes);
+            //DataManager.filteredRecipes.addAll(DataManager.recipes); TODO: Uncomment this and make a proper function for hiding the list in the future
         } else {
             String name;
             for (Recipe recipe : DataManager.recipes) {
