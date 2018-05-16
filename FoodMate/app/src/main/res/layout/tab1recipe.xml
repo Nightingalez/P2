@@ -43,13 +43,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorDarkenedBackground"
-        android:iconifiedByDefault="false"
+        android:iconifiedByDefault="true"
         android:queryHint="@string/search_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:clickable="true"
         android:id="@+id/ListView_RecipeIngredients"
         android:layout_width="0dp"
         android:layout_height="0dp"

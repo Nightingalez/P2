@@ -29,6 +29,8 @@ public class DataManager {
     final static String STORAGE = "storage.txt";
 
     public static ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+    public static ArrayList<Recipe> filteredRecipes;
+
     final static String RECIPES = "recipes.txt";
     final static String DEFAULT_RECIPES = "default_recipes.txt";
 
