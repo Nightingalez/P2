@@ -11,11 +11,10 @@ import java.util.ArrayList;
 
 public class RecipeAdapter extends ArrayAdapter<Recipe> {
     private Context context;
-    private ArrayList<Recipe> filteredRecipes;
 
     public RecipeAdapter(Context context, ArrayList<Recipe> recipes) {
         super(context, R.layout.recipe_listitem, recipes);
-        this.filteredRecipes = recipes;
+        DataManager.filteredRecipes = recipes;
         this.context = context;
     }
 
@@ -60,17 +59,17 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
 
     public void filter(String text) {
         text = text.toLowerCase();
-        filteredRecipes.clear();
+        DataManager.filteredRecipes.clear();
 
         if (text.length() == 0) {
-            filteredRecipes.addAll(DataManager.recipes);
+            DataManager.filteredRecipes.addAll(DataManager.recipes);
         } else {
             String name;
             for (Recipe recipe : DataManager.recipes) {
                 name = recipe.getName().toLowerCase();
 
                 if (name.contains(text)) {
-                    filteredRecipes.add(recipe);
+                    DataManager.filteredRecipes.add(recipe);
                 }
             }
         }
@@ -80,11 +79,15 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
 
     public void addItem(Recipe recipe) {
         DataManager.recipes.add(recipe);
-        filteredRecipes.add(recipe);
+        DataManager.filteredRecipes.add(recipe);
     }
 
 
     static class RecipeViewHolder {
         private TextView recipeName;
+    }
+
+    public Recipe getFilteredRecipeById(int position){
+        return DataManager.filteredRecipes.get(position);
     }
 }
