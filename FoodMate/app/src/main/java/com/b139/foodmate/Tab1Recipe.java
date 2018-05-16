@@ -44,6 +44,7 @@ public class Tab1Recipe extends Fragment {
 
         //Recipe search
         recipeAdapter = new RecipeAdapter(getContext(), new ArrayList<Recipe>(DataManager.recipes));
+        //Note: we create a new arrayList from recipes, as the adapter needs to maintain connection to a list. It will internally remember this copy.
         recipesListView.setAdapter(recipeAdapter);
 
         recipeSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
