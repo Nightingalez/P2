@@ -11,39 +11,39 @@ public class Recipe extends FoodItemList {
         super();
     }
 
-    //Creates a recipe with food items
-    public Recipe(ArrayList<FoodItem> contents) {
-
-        super(contents);
-    }
-
-    //Creates a recipe with food items TODO: Add to class diagram
+    //Creates a recipe with food items from array
     public Recipe(FoodItem[] contents) {
 
         super(contents);
     }
 
-    //Creates a recipe with a name and food items
-    public Recipe(String name, ArrayList<FoodItem> contents) {
+    //Creates a recipe with food items from ArrayList
+	public Recipe(ArrayList<FoodItem> contents) {
+	
+	    super(contents);
+	}
 
-        this(contents);
-        this.name = name;
-    }
-
-    //Creates a recipe with a name and food items TODO: Add to class diagram
+	//Creates a recipe with a name and food items
     public Recipe(String name, FoodItem[] contents) {
 
         this(contents);
         this.name = name;
     }
 
-    //Creates a recipe from an existing list TODO: Add to class diagram
+    //Creates a recipe with a name and food items
+	public Recipe(String name, ArrayList<FoodItem> contents) {
+	
+	    this(contents);
+	    this.name = name;
+	}
+
+	//Creates a recipe from an existing list
     public Recipe(FoodItemList list) {
 
         this(list.getContents());
     }
 
-    //Creates a recipe from an existing list with a name and food items TODO: Add to class diagram
+    //Creates a recipe from an existing list with a name and food items
     public Recipe(String name, FoodItemList list) {
 
         this(list);

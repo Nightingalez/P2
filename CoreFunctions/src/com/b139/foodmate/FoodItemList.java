@@ -15,7 +15,7 @@ public class FoodItemList {
         addFoodItem(foodItems);
     }
 
-    // Constructs a food item list with contents from an array TODO: Add to class diagram
+    // Constructs a food item list with contents from an array
     public FoodItemList(FoodItem[] foodItems) {
         addFoodItem(foodItems);
     }
@@ -39,7 +39,7 @@ public class FoodItemList {
         }
     }
 
-    // Adds an array of food items to contents TODO: Add to class diagram
+    // Adds an array of food items to contents
     public void addFoodItem(FoodItem[] item) {
         for (FoodItem f : item) {
             contents.add(f);
@@ -52,9 +52,17 @@ public class FoodItemList {
         contents.remove(item);
     }
 
-    // Removes multiple food item from contents
+    // Removes multiple food item from contents by ArrayList
     public void removeFoodItem(ArrayList<FoodItem> item) {
         contents.removeAll(item);
+    }
+    
+ // Removes multiple food item from contents by Array
+    public void removeFoodItem(FoodItem[] item) {
+    	for (FoodItem f : item)
+    	{
+    		this.removeFoodItem(f);
+    	}
     }
 
     // Removes a food item by ID
@@ -79,7 +87,7 @@ public class FoodItemList {
         }
     }
 
-    //Checks if the list contains an item of the given category TODO: add to class diagram
+    //Checks if the list contains an item of the given category
     public boolean categoryIsInList(Category category) {
         for (FoodItem item : contents) {
             if (item.getCategory() == category) {
@@ -93,7 +101,7 @@ public class FoodItemList {
     public void sortList(SortingMethod sortingType) {
         switch (sortingType) {
             case ALPHABETICAL:
-                contents.sort(FoodItem.FoodNameComparator); //TODO: bring up API issue
+                contents.sort(FoodItem.FoodNameComparator);
                 break;
 
             case CATEGORY:
