@@ -1,3 +1,4 @@
+package com.b139.foodmate;
 import java.util.Comparator;
 
 public class FoodItem
@@ -40,11 +41,21 @@ public class FoodItem
 	}
 
 	// Returns the name of the food item, derived from its category
-	public String getName()
-	{
+	public String getName() {
 		return category.getName();
 	}
-	
+
+	//TODO: determine if needed after implementing custom adapers
+	public String toString(){
+		return getName();
+	}
+
+	//Returns the quantity unit as a string abbrevation
+	public String getUnitAbbreviation()
+	{
+		return category.getUnitAbbreviation();
+	}
+
 	// Returns this food items category
 	public Category getCategory()
 	{
@@ -94,7 +105,7 @@ public class FoodItem
 		highestKnownID += 1;
 	}
 
-	// Returns the category's ID
+	// Returns the food items ID
 	public int getID()
 	{
 		return id;
@@ -115,7 +126,7 @@ public class FoodItem
 	};
 
 	// Comparator for main category name
-	public static Comparator<FoodItem> MainCatagoryNameComparator = new Comparator<FoodItem>()
+	public static Comparator<FoodItem> MainCategoryNameComparator = new Comparator<FoodItem>()
 	{
 		public int compare(FoodItem f1, FoodItem f2)
 		{

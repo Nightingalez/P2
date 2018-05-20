@@ -41,11 +41,21 @@ public class FoodItem
 	}
 
 	// Returns the name of the food item, derived from its category
-	public String getName()
-	{
+	public String getName() {
 		return category.getName();
 	}
-	
+
+	//TODO: determine if needed after implementing custom adapers
+	public String toString(){
+		return getName();
+	}
+
+	//Returns the quantity unit as a string abbrevation
+	public String getUnitAbbreviation()
+	{
+		return category.getUnitAbbreviation();
+	}
+
 	// Returns this food items category
 	public Category getCategory()
 	{

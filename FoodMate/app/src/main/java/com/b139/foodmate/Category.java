@@ -37,6 +37,16 @@ public class Category
 		this.name = name;
 	}
 
+	//Returns the unit type TODO: add to class diagram
+	public QuantityUnit getUnit() {
+		return unit;
+	}
+
+	public String getUnitAbbreviation()
+	{
+		return unit.toString();
+	}
+
 	// Adds a category as a subcategory of this category, and automatically set this
 	// category as its parent category
 	public void addSubcategory(Category subcategory)

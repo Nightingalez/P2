@@ -1,3 +1,5 @@
+package com.b139.foodmate;
+
 import java.util.ArrayList;
 
 public class Recipe extends FoodItemList {
@@ -32,6 +34,19 @@ public class Recipe extends FoodItemList {
     public Recipe(String name, FoodItem[] contents) {
 
         this(contents);
+        this.name = name;
+    }
+
+    //Creates a recipe from an existing list TODO: Add to class diagram
+    public Recipe(FoodItemList list) {
+
+        this(list.getContents());
+    }
+
+    //Creates a recipe from an existing list with a name and food items TODO: Add to class diagram
+    public Recipe(String name, FoodItemList list) {
+
+        this(list);
         this.name = name;
     }
 

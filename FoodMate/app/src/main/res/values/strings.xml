@@ -4,5 +4,9 @@
     <string name="tab_text_2">Shopping List</string>
     <string name="tab_text_3">Storage</string>
     <string name="action_settings">Settings</string>
-    <string name="add_ingerdients_to_shopping_list">Add ingredients to shopping list</string>
+    <string name="add_ingredients">Add ingredients to shopping list</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="ingredients_title">Ingredients</string>
+    <string name="app_label">FoodMate</string>
+    <string name="search_hint">Find recipe</string>
 </resources>
