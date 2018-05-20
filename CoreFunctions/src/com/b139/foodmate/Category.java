@@ -1,4 +1,4 @@
-
+package com.b139.foodmate;
 import java.util.ArrayList;
 
 public class Category
@@ -37,6 +37,16 @@ public class Category
 		this.name = name;
 	}
 
+	//Returns the unit type TODO: add to class diagram
+	public QuantityUnit getUnit() {
+		return unit;
+	}
+
+	public String getUnitAbbreviation()
+	{
+		return unit.toString();
+	}
+
 	// Adds a category as a subcategory of this category, and automatically set this
 	// category as its parent category
 	public void addSubcategory(Category subcategory)
@@ -62,16 +72,38 @@ public class Category
 		return subcategories;
 	}
 
-	// Returns this catagories parent category, if any. Should return null if no
+	//returns this category, all subcategories, subcategories of those, etc., as a single list TODO: add to class diagram
+	public ArrayList<Category> getCategoryBranch()
+	{
+		ArrayList<Category> result = new ArrayList<Category>();
+		result.add(this);
+		for (Category c : subcategories)
+		{
+			result.addAll(getCategoryBranch());
+		}
+		return result;
+	}
+
+	//Returns whether or not this category has subcategories TODO: Add to class diagram
+	public boolean hasSubcategories()
+	{
+		if(subcategories == null || subcategories.size() == 0)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	// Returns this categories parent category, if any. Should return null if no
 	// parent category exists
 	public Category getParentCategory()
 	{
 		return parentCategory;
 	}
 
-	public void setParentCategory(Category parentCatagory)
+	public void setParentCategory(Category parentCategory)
 	{
-		this.parentCategory = parentCatagory;
+		this.parentCategory = parentCategory;
 	}
 	
 	//Finds the uppermost main category that this category belongs under. Returns itself if it is a main category
@@ -107,7 +139,7 @@ public class Category
 		return parentCategory == null;
 	}
 
-	// Generate a new ID for this category. NOTE: ID's are only need when saving
+	// Generate a new ID for this category. NOTE: ID's are only need when loading and saving
 	public void generateID()
 	{
 		this.id = highestKnownID + 1;
@@ -118,5 +150,11 @@ public class Category
 	public int getID()
 	{
 		return id;
+	}
+
+	// Sets the category's ID TODO: add to class diagram
+	public void setID(int id)
+	{
+		this.id = id;
 	}
 }

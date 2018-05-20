@@ -1,3 +1,5 @@
+package com.b139.foodmate;
+
 import java.util.ArrayList;
 
 public class FoodItemList {
@@ -77,6 +79,16 @@ public class FoodItemList {
         }
     }
 
+    //Checks if the list contains an item of the given category TODO: add to class diagram
+    public boolean categoryIsInList(Category category) {
+        for (FoodItem item : contents) {
+            if (item.getCategory() == category) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Sorts the food item lists contents, based on sorting type
     public void sortList(SortingMethod sortingType) {
         switch (sortingType) {
@@ -85,7 +97,7 @@ public class FoodItemList {
                 break;
 
             case CATEGORY:
-                contents.sort(FoodItem.MainCatagoryNameComparator);
+                contents.sort(FoodItem.MainCategoryNameComparator);
                 break;
         }
     }
@@ -102,18 +114,14 @@ public class FoodItemList {
         FoodItemList missing = new FoodItemList();
 
         for (FoodItem c : comparedList.getContents()) {
-            boolean found = false;
-            for (FoodItem f : firstList.getContents()) {
-                if (c.getCategory() == f.getCategory()) {
-                    found = true;
-                    break;
-                }
-            }
+            boolean found = firstList.categoryIsInList(c.getCategory());
 
             if (!found) {
                 missing.addFoodItem(c.clone());
             }
         }
+
         return missing;
+
     }
 }
