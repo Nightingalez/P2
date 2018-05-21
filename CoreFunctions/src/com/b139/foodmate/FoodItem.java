@@ -45,6 +45,11 @@ public class FoodItem
 		return category.getName();
 	}
 
+	//NOTE: Only needed since we use some standard adapters. Once custom adapters have been defined for storage and shopping list, this can be removed
+	public String toString(){
+		return getName();
+	}
+
 	//Returns the quantity unit as a string abbrevation
 	public String getUnitAbbreviation()
 	{
