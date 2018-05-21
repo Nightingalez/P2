@@ -7,11 +7,11 @@ public class Category
 	private int id;
 	private String name;
 	private QuantityUnit unit;
-	private ArrayList<Category> subcategories = new ArrayList<Category>();
 	private Category parentCategory;
-
+	private ArrayList<Category> subcategories = new ArrayList<Category>();
+	
 	// Constructor for a category, that has no parent category (i.e. main
-	// categories), and automatically assign an ID.
+	// categories)
 	public Category(String name, QuantityUnit unit)
 	{
 		this.name = name;
@@ -37,11 +37,12 @@ public class Category
 		this.name = name;
 	}
 
-	//Returns the unit type TODO: add to class diagram
+	//Returns the unit type 
 	public QuantityUnit getUnit() {
 		return unit;
 	}
 
+	//Returns the units text abbrevation
 	public String getUnitAbbreviation()
 	{
 		return unit.toString();
@@ -72,19 +73,19 @@ public class Category
 		return subcategories;
 	}
 
-	//returns this category, all subcategories, subcategories of those, etc., as a single list TODO: add to class diagram
+	//returns this category, all subcategories, subcategories of those, etc., as a single list
 	public ArrayList<Category> getCategoryBranch()
 	{
 		ArrayList<Category> result = new ArrayList<Category>();
 		result.add(this);
 		for (Category c : subcategories)
 		{
-			result.addAll(getCategoryBranch());
+			result.addAll(c.getCategoryBranch());
 		}
 		return result;
 	}
 
-	//Returns whether or not this category has subcategories TODO: Add to class diagram
+	//Returns whether or not this category has subcategories
 	public boolean hasSubcategories()
 	{
 		if(subcategories == null || subcategories.size() == 0)
@@ -152,7 +153,7 @@ public class Category
 		return id;
 	}
 
-	// Sets the category's ID TODO: add to class diagram
+	// Sets the category's ID
 	public void setID(int id)
 	{
 		this.id = id;
