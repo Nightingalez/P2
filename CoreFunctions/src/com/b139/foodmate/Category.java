@@ -7,11 +7,11 @@ public class Category
 	private int id;
 	private String name;
 	private QuantityUnit unit;
-	private ArrayList<Category> subcategories = new ArrayList<Category>();
 	private Category parentCategory;
-
+	private ArrayList<Category> subcategories = new ArrayList<Category>();
+	
 	// Constructor for a category, that has no parent category (i.e. main
-	// categories), and automatically assign an ID.
+	// categories)
 	public Category(String name, QuantityUnit unit)
 	{
 		this.name = name;

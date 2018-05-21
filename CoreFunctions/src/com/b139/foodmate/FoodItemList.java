@@ -10,17 +10,17 @@ public class FoodItemList {
     public FoodItemList() {
     }
 
-    // Constructs a food item list with contents from an array list
-    public FoodItemList(ArrayList<FoodItem> foodItems) {
-        addFoodItem(foodItems);
-    }
-
     // Constructs a food item list with contents from an array
     public FoodItemList(FoodItem[] foodItems) {
         addFoodItem(foodItems);
     }
 
-    // Returns the contents (ArrayList) of food items
+    // Constructs a food item list with contents from an array list
+	public FoodItemList(ArrayList<FoodItem> foodItems) {
+	    addFoodItem(foodItems);
+	}
+
+	// Returns the contents (ArrayList) of food items
     public ArrayList<FoodItem> getContents() {
         return contents;
     }
@@ -31,18 +31,18 @@ public class FoodItemList {
         item.setInList(this);
     }
 
-    // Adds a list of food items to contents
+    // Adds an array of food items to contents
+	public void addFoodItem(FoodItem[] item) {
+	    for (FoodItem f : item) {
+	        contents.add(f);
+	        f.setInList(this);
+	    }
+	}
+
+	// Adds a list of food items to contents
     public void addFoodItem(ArrayList<FoodItem> item) {
         contents.addAll(item);
         for (FoodItem f : item) {
-            f.setInList(this);
-        }
-    }
-
-    // Adds an array of food items to contents
-    public void addFoodItem(FoodItem[] item) {
-        for (FoodItem f : item) {
-            contents.add(f);
             f.setInList(this);
         }
     }
@@ -52,20 +52,20 @@ public class FoodItemList {
         contents.remove(item);
     }
 
-    // Removes multiple food item from contents by ArrayList
+    // Removes multiple food item from contents by Array
+	public void removeFoodItem(FoodItem[] item) {
+		for (FoodItem f : item)
+		{
+			this.removeFoodItem(f);
+		}
+	}
+
+	// Removes multiple food item from contents by ArrayList
     public void removeFoodItem(ArrayList<FoodItem> item) {
         contents.removeAll(item);
     }
     
- // Removes multiple food item from contents by Array
-    public void removeFoodItem(FoodItem[] item) {
-    	for (FoodItem f : item)
-    	{
-    		this.removeFoodItem(f);
-    	}
-    }
-
-    // Removes a food item by ID
+ // Removes a food item by ID
     public void removeFoodItem(int id) {
         for (FoodItem f : contents) {
             if (f.getID() == id) {
